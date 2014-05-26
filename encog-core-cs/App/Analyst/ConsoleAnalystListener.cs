@@ -54,6 +54,8 @@ namespace Encog.App.Analyst
         /// </summary>
         private bool _shutdownRequested;
 
+        private readonly object _lock = new object();
+
         /// <summary>
         ///     Construct the object.
         /// </summary>
@@ -153,34 +155,42 @@ namespace Encog.App.Analyst
 
         /// <summary>
         /// </summary>
-        [MethodImpl(MethodImplOptions.Synchronized)]
         public void RequestCancelCommand()
         {
-            _cancelCommand = true;
+            lock (_lock)
+            {
+                _cancelCommand = true;
+            }
         }
 
         /// <summary>
         /// </summary>
-        [MethodImpl(MethodImplOptions.Synchronized)]
         public void RequestShutdown()
         {
-            _shutdownRequested = true;
+            lock (_lock)
+            {
+                _shutdownRequested = true;
+            }
         }
 
         /// <summary>
         /// </summary>
-        [MethodImpl(MethodImplOptions.Synchronized)]
         public bool ShouldShutDown()
         {
-            return _shutdownRequested;
+            lock (_lock)
+            {
+                return _shutdownRequested;
+            }
         }
 
         /// <summary>
         /// </summary>
-        [MethodImpl(MethodImplOptions.Synchronized)]
         public bool ShouldStopCommand()
         {
-            return _cancelCommand;
+            lock (_lock)
+            {
+                return _cancelCommand;
+            }
         }
 
         #endregion

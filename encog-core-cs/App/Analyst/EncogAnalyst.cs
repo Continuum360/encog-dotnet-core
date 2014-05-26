@@ -89,6 +89,8 @@ namespace Encog.App.Analyst
         /// </summary>
         private IDictionary<String, String> _revertData;
 
+        private readonly object _lock = new object();
+
         /// <summary>
         ///     Construct the Encog analyst.
         /// </summary>
@@ -790,12 +792,14 @@ namespace Encog.App.Analyst
         /// <summary>
         ///     Stop the current task.
         /// </summary>
-        [MethodImpl(MethodImplOptions.Synchronized)]
         public void StopCurrentTask()
         {
-            if (_currentQuantTask != null)
+            lock (_lock)
             {
-                _currentQuantTask.RequestStop();
+                if (_currentQuantTask != null)
+                {
+                    _currentQuantTask.RequestStop();
+                }
             }
         }
 
