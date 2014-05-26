@@ -108,7 +108,7 @@ namespace Encog.Util
 
             var enc = new UTF8Encoding();
 
-            String str = enc.GetString(mstream.GetBuffer());
+            String str = enc.GetString(mstream.ToArray());
             mstream.Dispose();
 
             var uri = new Uri(

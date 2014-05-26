@@ -115,7 +115,7 @@ namespace Encog.ML.Data.Market.Loader
             form.Add("g", "d");
             form.Add("ignore", ".csv");
             mstream.Close();
-            byte[] b = mstream.GetBuffer();
+            byte[] b = mstream.ToArray();
 
             String str = "http://ichart.finance.yahoo.com/table.csv?"
                          + StringUtil.FromBytes(b);
