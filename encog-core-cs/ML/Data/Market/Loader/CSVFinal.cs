@@ -80,11 +80,11 @@ namespace Encog.ML.Data.Market.Loader
 
                     if (writeonce)
                     {
-                        Console.WriteLine(@"First parsed date in csv:" + ParsedDate.ToShortDateString());
-                        Console.WriteLine(@"Stopping at date:" + to.ToShortDateString());
-                        Console.WriteLine(@"Current DateTime:" + ParsedDate.ToShortDateString() + @" Time:" +
-                                          ParsedDate.ToShortTimeString() + @"  Asked Start date was " +
-                                          from.ToShortDateString());
+                        Console.WriteLine(@"First parsed date in csv:" + ParsedDate.ToString("d"));
+                        Console.WriteLine(@"Stopping at date:" + to.ToString("d"));
+                        Console.WriteLine(@"Current DateTime:" + ParsedDate.ToString("d") + @" Time:" +
+                                          ParsedDate.ToString("t") + @"  Asked Start date was " +
+                                          from.ToString("d"));
                         writeonce = false;
                     }
                     if (ParsedDate >= from && ParsedDate <= to)
