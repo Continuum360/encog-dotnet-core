@@ -497,12 +497,12 @@ namespace Encog.Util.NetworkUtil
         /// </returns>
         public static double[] GenerateInputz(params double[][] inputs)
         {
-            ArrayList al = new ArrayList();
+            List<double> al = new List<double>();
             foreach (double[] doublear in inputs)
             {
-                al.Add((double[])doublear);
+                al.AddRange((double[])doublear);
             }
-            return (double[])al.ToArray(typeof(double));
+            return al.ToArray();
         }
 
 
@@ -517,8 +517,7 @@ namespace Encog.Util.NetworkUtil
         /// <returns>a ready to use jagged array with all the inputs setup.</returns>
         public static double[][] AddInputsViaLinq(int inputsize, params double[][] firstinputt)
         {
-            ArrayList arlist = new ArrayList(4);
-            ArrayList FirstList = new ArrayList();
+            List<double[]> FirstList = new List<double[]>();
             List<double> listused = new List<double>();
             int lenghtofArrays = firstinputt[0].Length;
             //There must be NO modulo...or the arrays would not be divisible by this input size.
@@ -535,7 +534,7 @@ namespace Encog.Util.NetworkUtil
                     listused.Clear();
                 }
             }
-            return (double[][])FirstList.ToArray(typeof(double[]));
+            return FirstList.ToArray();
         }
 
 
@@ -549,8 +548,7 @@ namespace Encog.Util.NetworkUtil
         /// <returns>a ready to use jagged array with all the inputs setup.</returns>
         public static double[][] AddInputs(int inputsize, params double[][] firstinputt)
         {
-            ArrayList arlist = new ArrayList(4);
-            ArrayList FirstList = new ArrayList();
+            List<double[]> FirstList = new List<double[]>();
             List<double> listused = new List<double>();
             int lenghtofArrays = firstinputt[0].Length;
             //There must be NO modulo...or the arrays would not be divisile by this input size.
@@ -572,7 +570,7 @@ namespace Encog.Util.NetworkUtil
                     }
                 }
             }
-            return (double[][])FirstList.ToArray(typeof(double[]));
+            return FirstList.ToArray();
         }
 
         /// <summary>
@@ -587,8 +585,8 @@ namespace Encog.Util.NetworkUtil
         public static IMLDataSet MakeDataSet(double[] outputs, int inputsize, params double[][] firstinputt)
         {
             IMLDataSet set = new BasicMLDataSet();
-            ArrayList outputsar = new ArrayList();
-            ArrayList FirstList = new ArrayList();
+            List<double[]> outputsar = new List<double[]>();
+            List<double[]> FirstList = new List<double[]>();
             List<double> listused = new List<double>();
             int lenghtofArrays = firstinputt[0].Length;
 
@@ -617,7 +615,7 @@ namespace Encog.Util.NetworkUtil
                 outputsar.Add(listused.ToArray());
                 listused.Clear();
             }
-            set = new BasicMLDataSet((double[][])FirstList.ToArray(typeof(double[])), (double[][])outputsar.ToArray(typeof(double[])));
+            set = new BasicMLDataSet(FirstList.ToArray(), outputsar.ToArray());
             return set;
         }
 
@@ -672,7 +670,7 @@ namespace Encog.Util.NetworkUtil
         /// <returns></returns>
         public static IMLDataSet MakeSetFromInputsSources(int predwindow, params double[][] inputs)
         {
-            ArrayList list = new ArrayList(inputs.Length);
+            List<double[]> list = new List<double[]>(inputs.Length);
             IMLDataSet set = new BasicMLDataSet();
             //we know now how many items we have in each data series (all series should be of equal lenght).
             int dimension = inputs[0].Length;
