@@ -1649,14 +1649,14 @@ namespace Encog.App.Analyst.Wizard
             fields.Clear();
             foreach (DataField df in _script.Fields)
             {
-                if (string.Compare(df.Name, "prediction", true) == 0)
+                if (string.Compare(df.Name, "prediction", StringComparison.OrdinalIgnoreCase) == 0)
                 {
                     continue;
                 }
 
                 var command = new StringBuilder();
 
-                if (string.Compare(df.Name, "time", true) == 0)
+                if (string.Compare(df.Name, "time", StringComparison.OrdinalIgnoreCase) == 0)
                 {
                     command.Append("cint(field(\"");
                     command.Append(df.Name);

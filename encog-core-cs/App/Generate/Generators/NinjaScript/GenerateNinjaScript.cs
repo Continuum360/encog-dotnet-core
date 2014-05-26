@@ -62,7 +62,8 @@ namespace Encog.App.Generate.Generators.NinjaScript
 
             foreach (DataField df in Analyst.Script.Fields)
             {
-                if (string.Compare(df.Name, "time", true) != 0 && string.Compare(df.Name, "prediction", true) != 0)
+                if (string.Compare(df.Name, "time", StringComparison.OrdinalIgnoreCase) != 0 
+                    && string.Compare(df.Name, "prediction", StringComparison.OrdinalIgnoreCase) != 0)
                 {
                     if (!first)
                     {
@@ -247,7 +248,8 @@ namespace Encog.App.Generate.Generators.NinjaScript
             int idx = 0;
             foreach (DataField df in Analyst.Script.Fields)
             {
-                if (string.Compare(df.Name, "time", true) != 0 && string.Compare(df.Name, "prediction", true) != 0)
+                if (string.Compare(df.Name, "time", StringComparison.OrdinalIgnoreCase) != 0 
+                    && string.Compare(df.Name, "prediction", StringComparison.OrdinalIgnoreCase) != 0)
                 {
                     String str = EngineArray.Replace(df.Source, "##", "0");
                     AddLine("result[" + idx + "]=" + str + ";");
@@ -260,7 +262,7 @@ namespace Encog.App.Generate.Generators.NinjaScript
 
         public override void ProcessToken(String command)
         {
-            if (string.Compare(command, "MAIN-BLOCK", true) == 0)
+            if (string.Compare(command, "MAIN-BLOCK", StringComparison.OrdinalIgnoreCase) == 0)
             {
                 ProcessMainBlock();
             }

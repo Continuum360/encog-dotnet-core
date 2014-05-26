@@ -83,7 +83,7 @@ namespace Encog.Bot.Browse.Range
                 if (element is Input)
                 {
                     var input = (Input) element;
-                    if (String.Compare(input.Type, type, true) == 0)
+                    if (String.Compare(input.Type, type, StringComparison.OrdinalIgnoreCase) == 0)
                     {
                         if (i <= 0)
                         {

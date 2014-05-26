@@ -111,7 +111,7 @@ namespace Encog.Parse.Expression.EPL
                     // is it boolean?
                     else if (str.Length == 1 && "tf".IndexOf(char.ToLower(str[0])) != -1)
                     {
-                        node.Data[i] = new ExpressionValue(string.Compare(str, "t", true));
+                        node.Data[i] = new ExpressionValue(string.Compare(str, "t", StringComparison.OrdinalIgnoreCase));
                     }
                     // is it a string?
                     else if (str[0] == '\"')

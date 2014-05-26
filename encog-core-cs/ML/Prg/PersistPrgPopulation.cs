@@ -146,23 +146,23 @@ namespace Encog.ML.Prg
                             String t = cols[1];
                             var vt = EPLValueType.Unknown;
 
-                            if (string.Compare(t, "f", true) == 0)
+                            if (string.Compare(t, "f", StringComparison.OrdinalIgnoreCase) == 0)
                             {
                                 vt = EPLValueType.FloatingType;
                             }
-                            else if (string.Compare(t, "b", true) == 0)
+                            else if (string.Compare(t, "b", StringComparison.OrdinalIgnoreCase) == 0)
                             {
                                 vt = EPLValueType.BooleanType;
                             }
-                            else if (string.Compare(t, "i", true) == 0)
+                            else if (string.Compare(t, "i", StringComparison.OrdinalIgnoreCase) == 0)
                             {
                                 vt = EPLValueType.IntType;
                             }
-                            else if (string.Compare(t, "s", true) == 0)
+                            else if (string.Compare(t, "s", StringComparison.OrdinalIgnoreCase) == 0)
                             {
                                 vt = EPLValueType.StringType;
                             }
-                            else if (string.Compare(t, "e", true) == 0)
+                            else if (string.Compare(t, "e", StringComparison.OrdinalIgnoreCase) == 0)
                             {
                                 vt = EPLValueType.EnumType;
                             }

@@ -61,7 +61,7 @@ namespace Encog.Bot.Browse.Range
         /// </summary>
         public override bool AutoSend
         {
-            get { return string.Compare(_type, "submit", true) != 0; }
+            get { return string.Compare(_type, "submit", StringComparison.OrdinalIgnoreCase) != 0; }
         }
 
         /// <summary>

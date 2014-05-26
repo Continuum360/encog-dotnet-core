@@ -140,7 +140,7 @@ namespace Encog.Bot.Browse
                 if (du is TagDataUnit)
                 {
                     Tag nextTag = ((TagDataUnit) du).Tag;
-                    if (String.Compare(tag.Name, nextTag.Name, true) == 0)
+                    if (String.Compare(tag.Name, nextTag.Name, StringComparison.OrdinalIgnoreCase) == 0)
                     {
                         if (nextTag.TagType == Tag.Type.End)
                         {
@@ -220,19 +220,19 @@ namespace Encog.Bot.Browse
 
                     if (tag.TagType != Tag.Type.End)
                     {
-                        if (string.Compare(tag.Name, "a", true) == 0)
+                        if (string.Compare(tag.Name, "a", StringComparison.OrdinalIgnoreCase) == 0)
                         {
                             LoadLink(index, tag);
                         }
-                        else if (string.Compare(tag.Name, "title", true) == 0)
+                        else if (string.Compare(tag.Name, "title", StringComparison.OrdinalIgnoreCase) == 0)
                         {
                             LoadTitle(index, tag);
                         }
-                        else if (string.Compare(tag.Name, "form", true) == 0)
+                        else if (string.Compare(tag.Name, "form", StringComparison.OrdinalIgnoreCase) == 0)
                         {
                             LoadForm(index, tag);
                         }
-                        else if (string.Compare(tag.Name, "input", true) == 0)
+                        else if (string.Compare(tag.Name, "input", StringComparison.OrdinalIgnoreCase) == 0)
                         {
                             LoadInput(index, tag);
                         }
@@ -240,11 +240,11 @@ namespace Encog.Bot.Browse
 
                     if (tag.TagType == Tag.Type.Begin)
                     {
-                        if (String.Compare(tag.Name, "div", true) == 0)
+                        if (String.Compare(tag.Name, "div", StringComparison.OrdinalIgnoreCase) == 0)
                         {
                             LoadDiv(index, tag);
                         }
-                        else if (String.Compare(tag.Name, "span", true) == 0)
+                        else if (String.Compare(tag.Name, "span", StringComparison.OrdinalIgnoreCase) == 0)
                         {
                             LoadSpan(index, tag);
                         }
@@ -260,7 +260,7 @@ namespace Encog.Bot.Browse
                                     _lastHierarchyElement.Parent;
                             }
                         }
-                        else if (String.Compare(tag.Name, "span", true) == 0)
+                        else if (String.Compare(tag.Name, "span", StringComparison.OrdinalIgnoreCase) == 0)
                         {
                             if (_lastHierarchyElement != null)
                             {
@@ -307,12 +307,12 @@ namespace Encog.Bot.Browse
 
                     text.Length = 0;
                     CreateTagDataUnit(parse.LastTag);
-                    if (String.Compare(parse.LastTag.Name, "style", true) == 0)
+                    if (String.Compare(parse.LastTag.Name, "style", StringComparison.OrdinalIgnoreCase) == 0)
                     {
                         style = true;
                     }
                     else if (string.Compare(parse.LastTag.Name,
-                                            "script", true) == 0)
+                                            "script", StringComparison.OrdinalIgnoreCase) == 0)
                     {
                         script = true;
                     }
@@ -359,7 +359,7 @@ namespace Encog.Bot.Browse
             form.Begin = index;
             form.End = FindEndTag(index + 1, tag);
 
-            if ((method == null) || string.Compare(method, "GET", true) == 0)
+            if ((method == null) || string.Compare(method, "GET", StringComparison.OrdinalIgnoreCase) == 0)
             {
                 form.Method = Form.FormMethod.Get;
             }

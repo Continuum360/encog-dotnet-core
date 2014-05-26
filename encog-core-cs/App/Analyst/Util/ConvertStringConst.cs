@@ -141,9 +141,9 @@ namespace Encog.App.Analyst.Util
         /// <returns></returns>
         public static AnalystGoal String2AnalystGoal(String str)
         {
-            if (String.Compare(str, "classification", true) == 0)
+            if (String.Compare(str, "classification", StringComparison.OrdinalIgnoreCase) == 0)
                 return AnalystGoal.Classification;
-            else if (String.Compare(str, "regression", true) == 0)
+            else if (String.Compare(str, "regression", StringComparison.OrdinalIgnoreCase) == 0)
                 return AnalystGoal.Regression;
             else
                 return AnalystGoal.Unknown;

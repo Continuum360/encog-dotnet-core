@@ -64,18 +64,18 @@ namespace Encog.ML.Factory.Train
 		IBayesEstimator estimator;
 		BayesianInit init;
 		
-		if( string.Compare(searchStr,"k2",true)==0) {
+		if( string.Compare(searchStr,"k2",StringComparison.OrdinalIgnoreCase)==0) {
 			search = new SearchK2();
-		} else if( string.Compare(searchStr,"none",true)==0) {
+		} else if( string.Compare(searchStr,"none",StringComparison.OrdinalIgnoreCase)==0) {
 			search = new SearchNone();
 		}
 		else {
 			throw new BayesianError("Invalid search type: " + searchStr);
 		}
 		
-		if( string.Compare(estimatorStr,"simple",true)==0) {
+		if( string.Compare(estimatorStr,"simple",StringComparison.OrdinalIgnoreCase)==0) {
 			estimator = new SimpleEstimator();
-		} else if( string.Compare(estimatorStr, "none",true)==0) {
+		} else if( string.Compare(estimatorStr, "none",StringComparison.OrdinalIgnoreCase)==0) {
 			estimator = new EstimatorNone();
 		}
 		else {

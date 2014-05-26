@@ -91,11 +91,11 @@ namespace Encog.ML.Bayesian.Parse
             }
 
             // resolve true/false if not found, probably came from +/- notation
-            if (String.Compare(Value, "true", true) == 0)
+            if (String.Compare(Value, "true", StringComparison.OrdinalIgnoreCase) == 0)
             {
                 return 0;
             }
-            else if (String.Compare(Value, "false", true) == 0)
+            else if (String.Compare(Value, "false", StringComparison.OrdinalIgnoreCase) == 0)
             {
                 return 1;
             }

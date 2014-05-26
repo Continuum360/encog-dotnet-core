@@ -349,7 +349,7 @@ namespace Encog.App.Analyst.Script
         /// <returns>The analyst field.</returns>
         public AnalystField FindAnalystField(string name)
         {
-            return _normalize.NormalizedFields.FirstOrDefault(f => string.Compare(name, f.Name, true) == 0);
+            return _normalize.NormalizedFields.FirstOrDefault(f => string.Compare(name, f.Name, StringComparison.OrdinalIgnoreCase) == 0);
         }
     }
 }
