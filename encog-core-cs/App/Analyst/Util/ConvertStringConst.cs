@@ -108,23 +108,23 @@ namespace Encog.App.Analyst.Util
         /// <returns>The analyst file format.</returns>
         public static AnalystFileFormat String2AnalystFileFormat(String str)
         {
-            if (str.Equals("decpnt|comma", StringComparison.InvariantCultureIgnoreCase))
+            if (str.Equals("decpnt|comma", StringComparison.OrdinalIgnoreCase))
             {
                 return AnalystFileFormat.DecpntComma;
             }
-            else if (str.Equals("decpnt|space", StringComparison.InvariantCultureIgnoreCase))
+            else if (str.Equals("decpnt|space", StringComparison.OrdinalIgnoreCase))
             {
                 return AnalystFileFormat.DecpntSpace;
             }
-            else if (str.Equals("decpnt|semi", StringComparison.InvariantCultureIgnoreCase))
+            else if (str.Equals("decpnt|semi", StringComparison.OrdinalIgnoreCase))
             {
                 return AnalystFileFormat.DecpntSemi;
             }
-            else if (str.Equals("deccomma|space", StringComparison.InvariantCultureIgnoreCase))
+            else if (str.Equals("deccomma|space", StringComparison.OrdinalIgnoreCase))
             {
                 return AnalystFileFormat.DeccommaSpace;
             }
-            else if (str.Equals("deccomma|semi", StringComparison.InvariantCultureIgnoreCase))
+            else if (str.Equals("deccomma|semi", StringComparison.OrdinalIgnoreCase))
             {
                 return AnalystFileFormat.DeccommaSemi;
             }

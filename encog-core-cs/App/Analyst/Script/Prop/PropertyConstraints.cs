@@ -66,27 +66,27 @@ namespace Encog.App.Analyst.Script.Prop
 
                     // determine type
                     PropertyType t;
-                    if ("boolean".Equals(typeStr, StringComparison.InvariantCultureIgnoreCase))
+                    if ("boolean".Equals(typeStr, StringComparison.OrdinalIgnoreCase))
                     {
                         t = PropertyType.TypeBoolean;
                     }
-                    else if ("real".Equals(typeStr, StringComparison.InvariantCultureIgnoreCase))
+                    else if ("real".Equals(typeStr, StringComparison.OrdinalIgnoreCase))
                     {
                         t = PropertyType.TypeDouble;
                     }
-                    else if ("format".Equals(typeStr, StringComparison.InvariantCultureIgnoreCase))
+                    else if ("format".Equals(typeStr, StringComparison.OrdinalIgnoreCase))
                     {
                         t = PropertyType.TypeFormat;
                     }
-                    else if ("int".Equals(typeStr, StringComparison.InvariantCultureIgnoreCase))
+                    else if ("int".Equals(typeStr, StringComparison.OrdinalIgnoreCase))
                     {
                         t = PropertyType.TypeInteger;
                     }
-                    else if ("list-string".Equals(typeStr, StringComparison.InvariantCultureIgnoreCase))
+                    else if ("list-string".Equals(typeStr, StringComparison.OrdinalIgnoreCase))
                     {
                         t = PropertyType.TypeListString;
                     }
-                    else if ("string".Equals(typeStr, StringComparison.InvariantCultureIgnoreCase))
+                    else if ("string".Equals(typeStr, StringComparison.OrdinalIgnoreCase))
                     {
                         t = PropertyType.TypeString;
                     }
@@ -175,7 +175,7 @@ namespace Encog.App.Analyst.Script.Prop
                                        + "." + subSection);
             }
 
-            return list.FirstOrDefault(entry => entry.Name.Equals(name, StringComparison.InvariantCultureIgnoreCase));
+            return list.FirstOrDefault(entry => entry.Name.Equals(name, StringComparison.OrdinalIgnoreCase));
         }
     }
 }

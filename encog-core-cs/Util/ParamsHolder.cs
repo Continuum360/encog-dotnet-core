@@ -165,15 +165,15 @@ namespace Encog.Util
             if (str == null)
                 return defaultValue;
 
-            if (!str.Equals("true", StringComparison.InvariantCultureIgnoreCase) &&
-                !str.Equals("false", StringComparison.InvariantCultureIgnoreCase))
+            if (!str.Equals("true", StringComparison.OrdinalIgnoreCase) &&
+                !str.Equals("false", StringComparison.OrdinalIgnoreCase))
             {
                 throw new EncogError("Property " + name
                                      + " has an invalid value of " + str
                                      + ", should be true/false.");
             }
 
-            return str.Equals("true", StringComparison.InvariantCultureIgnoreCase);
+            return str.Equals("true", StringComparison.OrdinalIgnoreCase);
         }
     }
 }

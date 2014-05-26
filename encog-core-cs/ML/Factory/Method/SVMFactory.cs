@@ -77,11 +77,11 @@ namespace Encog.ML.Factory.Method
             {
                 useNew = true;
             }
-            else if (svmTypeStr.Equals("NEW", StringComparison.InvariantCultureIgnoreCase))
+            else if (svmTypeStr.Equals("NEW", StringComparison.OrdinalIgnoreCase))
             {
                 useNew = true;
             }
-            else if (svmTypeStr.Equals("OLD", StringComparison.InvariantCultureIgnoreCase))
+            else if (svmTypeStr.Equals("OLD", StringComparison.OrdinalIgnoreCase))
             {
                 useNew = false;
             }
@@ -91,7 +91,7 @@ namespace Encog.ML.Factory.Method
                                      + ", must be NEW or OLD.");
             }
 
-            if (name.Equals("C", StringComparison.InvariantCultureIgnoreCase))
+            if (name.Equals("C", StringComparison.OrdinalIgnoreCase))
             {
                 if (useNew)
                 {
@@ -102,7 +102,7 @@ namespace Encog.ML.Factory.Method
                     svmType = SVMType.SupportVectorClassification;
                 }
             }
-            else if (name.Equals("R", StringComparison.InvariantCultureIgnoreCase))
+            else if (name.Equals("R", StringComparison.OrdinalIgnoreCase))
             {
                 if (useNew)
                 {
@@ -123,23 +123,23 @@ namespace Encog.ML.Factory.Method
             {
                 kernelType = KernelType.RadialBasisFunction;
             }
-            else if ("linear".Equals(kernelStr, StringComparison.InvariantCultureIgnoreCase))
+            else if ("linear".Equals(kernelStr, StringComparison.OrdinalIgnoreCase))
             {
                 kernelType = KernelType.Linear;
             }
-            else if ("poly".Equals(kernelStr, StringComparison.InvariantCultureIgnoreCase))
+            else if ("poly".Equals(kernelStr, StringComparison.OrdinalIgnoreCase))
             {
                 kernelType = KernelType.Poly;
             }
-            else if ("precomputed".Equals(kernelStr, StringComparison.InvariantCultureIgnoreCase))
+            else if ("precomputed".Equals(kernelStr, StringComparison.OrdinalIgnoreCase))
             {
                 kernelType = KernelType.Precomputed;
             }
-            else if ("rbf".Equals(kernelStr, StringComparison.InvariantCultureIgnoreCase))
+            else if ("rbf".Equals(kernelStr, StringComparison.OrdinalIgnoreCase))
             {
                 kernelType = KernelType.RadialBasisFunction;
             }
-            else if ("sigmoid".Equals(kernelStr, StringComparison.InvariantCultureIgnoreCase))
+            else if ("sigmoid".Equals(kernelStr, StringComparison.OrdinalIgnoreCase))
             {
                 kernelType = KernelType.Sigmoid;
             }

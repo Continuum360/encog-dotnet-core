@@ -309,7 +309,7 @@ namespace Encog.App.Analyst.Util
                 if (_headerList.Count > i2)
                     if (
                         _headerList.Where((t, j) => i1 != j)
-                                   .Any(t => _headerList[i2].Equals(t, StringComparison.InvariantCultureIgnoreCase)))
+                                   .Any(t => _headerList[i2].Equals(t, StringComparison.OrdinalIgnoreCase)))
                     {
                         throw new AnalystError("Multiple fields named: "
                                                + _headerList[i]);

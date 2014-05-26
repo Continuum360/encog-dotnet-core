@@ -227,7 +227,7 @@ namespace Encog.App.Analyst.Script
         {
             return
                 _fields.FirstOrDefault(
-                    dataField => dataField.Name.Equals(name, StringComparison.InvariantCultureIgnoreCase));
+                    dataField => dataField.Name.Equals(name, StringComparison.OrdinalIgnoreCase));
         }
 
         /// <summary>
@@ -259,7 +259,7 @@ namespace Encog.App.Analyst.Script
             return
                 Normalize.NormalizedFields.FirstOrDefault(
                     field =>
-                    field.Name.Equals(name, StringComparison.InvariantCultureIgnoreCase) && (field.TimeSlice == slice));
+                    field.Name.Equals(name, StringComparison.OrdinalIgnoreCase) && (field.TimeSlice == slice));
         }
 
 

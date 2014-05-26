@@ -100,7 +100,7 @@ namespace Encog.App.Analyst.Script
                 String v = _script.Properties.GetFilename(key);
                 var f = new FileInfo(v);
                 xout.WriteProperty(key,
-                                   f.DirectoryName.Equals(_script.BasePath, StringComparison.InvariantCultureIgnoreCase)
+                                   f.DirectoryName.Equals(_script.BasePath, StringComparison.OrdinalIgnoreCase)
                                        ? f.Name
                                        : v);
             }

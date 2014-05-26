@@ -70,19 +70,19 @@ namespace Encog.ML.Factory.Train
 
             RBFEnum t;
 
-            if (rbfTypeStr.Equals("Gaussian", StringComparison.InvariantCultureIgnoreCase))
+            if (rbfTypeStr.Equals("Gaussian", StringComparison.OrdinalIgnoreCase))
             {
                 t = RBFEnum.Gaussian;
             }
-            else if (rbfTypeStr.Equals("Multiquadric", StringComparison.InvariantCultureIgnoreCase))
+            else if (rbfTypeStr.Equals("Multiquadric", StringComparison.OrdinalIgnoreCase))
             {
                 t = RBFEnum.Multiquadric;
             }
-            else if (rbfTypeStr.Equals("InverseMultiquadric", StringComparison.InvariantCultureIgnoreCase))
+            else if (rbfTypeStr.Equals("InverseMultiquadric", StringComparison.OrdinalIgnoreCase))
             {
                 t = RBFEnum.InverseMultiquadric;
             }
-            else if (rbfTypeStr.Equals("MexicanHat", StringComparison.InvariantCultureIgnoreCase))
+            else if (rbfTypeStr.Equals("MexicanHat", StringComparison.OrdinalIgnoreCase))
             {
                 t = RBFEnum.MexicanHat;
             }
@@ -93,22 +93,22 @@ namespace Encog.ML.Factory.Train
 
             INeighborhoodFunction nf = null;
 
-            if (neighborhoodStr.Equals("bubble", StringComparison.InvariantCultureIgnoreCase))
+            if (neighborhoodStr.Equals("bubble", StringComparison.OrdinalIgnoreCase))
             {
                 nf = new NeighborhoodBubble(1);
             }
-            else if (neighborhoodStr.Equals("rbf", StringComparison.InvariantCultureIgnoreCase))
+            else if (neighborhoodStr.Equals("rbf", StringComparison.OrdinalIgnoreCase))
             {
                 String str = holder.GetString(
                     MLTrainFactory.PropertyDimensions, true, null);
                 int[] size = NumberList.FromListInt(CSVFormat.EgFormat, str);
                 nf = new NeighborhoodRBF(size, t);
             }
-            else if (neighborhoodStr.Equals("rbf1d", StringComparison.InvariantCultureIgnoreCase))
+            else if (neighborhoodStr.Equals("rbf1d", StringComparison.OrdinalIgnoreCase))
             {
                 nf = new NeighborhoodRBF1D(t);
             }
-            if (neighborhoodStr.Equals("single", StringComparison.InvariantCultureIgnoreCase))
+            if (neighborhoodStr.Equals("single", StringComparison.OrdinalIgnoreCase))
             {
                 nf = new NeighborhoodSingle();
             }

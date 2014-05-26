@@ -73,7 +73,7 @@ namespace Encog.Neural.Networks.Training.Propagation
 
                     foreach (String key  in  paras.Keys)
                     {
-                        if (key.Equals("type", StringComparison.InvariantCultureIgnoreCase))
+                        if (key.Equals("type", StringComparison.OrdinalIgnoreCase))
                         {
                             result.TrainingType = paras[key];
                         }

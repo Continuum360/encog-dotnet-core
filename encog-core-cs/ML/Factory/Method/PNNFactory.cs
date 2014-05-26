@@ -73,15 +73,15 @@ namespace Encog.ML.Factory.Method
             PNNKernelType kernel;
             PNNOutputMode outmodel;
 
-            if (pnnLayer.Name.Equals("c", StringComparison.InvariantCultureIgnoreCase))
+            if (pnnLayer.Name.Equals("c", StringComparison.OrdinalIgnoreCase))
             {
                 outmodel = PNNOutputMode.Classification;
             }
-            else if (pnnLayer.Name.Equals("r", StringComparison.InvariantCultureIgnoreCase))
+            else if (pnnLayer.Name.Equals("r", StringComparison.OrdinalIgnoreCase))
             {
                 outmodel = PNNOutputMode.Regression;
             }
-            else if (pnnLayer.Name.Equals("u", StringComparison.InvariantCultureIgnoreCase))
+            else if (pnnLayer.Name.Equals("u", StringComparison.OrdinalIgnoreCase))
             {
                 outmodel = PNNOutputMode.Unsupervised;
             }
@@ -94,11 +94,11 @@ namespace Encog.ML.Factory.Method
 
             String kernelStr = holder.GetString("KERNEL", false, "gaussian");
 
-            if (kernelStr.Equals("gaussian", StringComparison.InvariantCultureIgnoreCase))
+            if (kernelStr.Equals("gaussian", StringComparison.OrdinalIgnoreCase))
             {
                 kernel = PNNKernelType.Gaussian;
             }
-            else if (kernelStr.Equals("reciprocal", StringComparison.InvariantCultureIgnoreCase))
+            else if (kernelStr.Equals("reciprocal", StringComparison.OrdinalIgnoreCase))
             {
                 kernel = PNNKernelType.Reciprocal;
             }

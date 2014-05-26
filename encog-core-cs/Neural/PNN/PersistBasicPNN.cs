@@ -231,11 +231,11 @@ namespace Encog.Neural.Pnn
         /// <returns>The kernel.</returns>
         public static PNNKernelType StringToKernel(String k)
         {
-            if (k.Equals("gaussian", StringComparison.InvariantCultureIgnoreCase))
+            if (k.Equals("gaussian", StringComparison.OrdinalIgnoreCase))
             {
                 return PNNKernelType.Gaussian;
             }
-            if (k.Equals("reciprocal", StringComparison.InvariantCultureIgnoreCase))
+            if (k.Equals("reciprocal", StringComparison.OrdinalIgnoreCase))
             {
                 return PNNKernelType.Reciprocal;
             }
@@ -250,15 +250,15 @@ namespace Encog.Neural.Pnn
         /// <returns>The output ndoe.</returns>
         public static PNNOutputMode StringToOutputMode(String mode)
         {
-            if (mode.Equals("regression", StringComparison.InvariantCultureIgnoreCase))
+            if (mode.Equals("regression", StringComparison.OrdinalIgnoreCase))
             {
                 return PNNOutputMode.Regression;
             }
-            if (mode.Equals("unsupervised", StringComparison.InvariantCultureIgnoreCase))
+            if (mode.Equals("unsupervised", StringComparison.OrdinalIgnoreCase))
             {
                 return PNNOutputMode.Unsupervised;
             }
-            if (mode.Equals("classification", StringComparison.InvariantCultureIgnoreCase))
+            if (mode.Equals("classification", StringComparison.OrdinalIgnoreCase))
             {
                 return PNNOutputMode.Classification;
             }

@@ -73,19 +73,19 @@ namespace Encog.ML.Factory.Method
 
             RBFEnum t;
 
-            if (rbfLayer.Name.Equals("Gaussian", StringComparison.InvariantCultureIgnoreCase))
+            if (rbfLayer.Name.Equals("Gaussian", StringComparison.OrdinalIgnoreCase))
             {
                 t = RBFEnum.Gaussian;
             }
-            else if (rbfLayer.Name.Equals("Multiquadric", StringComparison.InvariantCultureIgnoreCase))
+            else if (rbfLayer.Name.Equals("Multiquadric", StringComparison.OrdinalIgnoreCase))
             {
                 t = RBFEnum.Multiquadric;
             }
-            else if (rbfLayer.Name.Equals("InverseMultiquadric", StringComparison.InvariantCultureIgnoreCase))
+            else if (rbfLayer.Name.Equals("InverseMultiquadric", StringComparison.OrdinalIgnoreCase))
             {
                 t = RBFEnum.InverseMultiquadric;
             }
-            else if (rbfLayer.Name.Equals("MexicanHat", StringComparison.InvariantCultureIgnoreCase))
+            else if (rbfLayer.Name.Equals("MexicanHat", StringComparison.OrdinalIgnoreCase))
             {
                 t = RBFEnum.MexicanHat;
             }

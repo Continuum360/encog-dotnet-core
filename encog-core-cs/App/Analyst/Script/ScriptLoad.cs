@@ -401,87 +401,87 @@ namespace Encog.App.Analyst.Script
             String currentSubsection = section.SubSectionName;
 
             if (currentSection.Equals("SETUP")
-                && currentSubsection.Equals("CONFIG", StringComparison.InvariantCultureIgnoreCase))
+                && currentSubsection.Equals("CONFIG", StringComparison.OrdinalIgnoreCase))
             {
                 LoadSubSection(section);
             }
             else if (currentSection.Equals("SETUP")
-                     && currentSubsection.Equals("FILENAMES", StringComparison.InvariantCultureIgnoreCase))
+                     && currentSubsection.Equals("FILENAMES", StringComparison.OrdinalIgnoreCase))
             {
                 HandleFilenames(section);
             }
             else if (currentSection.Equals("DATA")
-                     && currentSubsection.Equals("CONFIG", StringComparison.InvariantCultureIgnoreCase))
+                     && currentSubsection.Equals("CONFIG", StringComparison.OrdinalIgnoreCase))
             {
                 LoadSubSection(section);
             }
             else if (currentSection.Equals("DATA")
-                     && currentSubsection.Equals("STATS", StringComparison.InvariantCultureIgnoreCase))
+                     && currentSubsection.Equals("STATS", StringComparison.OrdinalIgnoreCase))
             {
                 HandleDataStats(section);
             }
             else if (currentSection.Equals("DATA")
-                     && currentSubsection.Equals("CLASSES", StringComparison.InvariantCultureIgnoreCase))
+                     && currentSubsection.Equals("CLASSES", StringComparison.OrdinalIgnoreCase))
             {
                 HandleDataClasses(section);
             }
             else if (currentSection.Equals("NORMALIZE")
-                     && currentSubsection.Equals("RANGE", StringComparison.InvariantCultureIgnoreCase))
+                     && currentSubsection.Equals("RANGE", StringComparison.OrdinalIgnoreCase))
             {
                 HandleNormalizeRange(section);
             }
             else if (currentSection.Equals("NORMALIZE")
-                     && currentSubsection.Equals("CONFIG", StringComparison.InvariantCultureIgnoreCase))
+                     && currentSubsection.Equals("CONFIG", StringComparison.OrdinalIgnoreCase))
             {
                 LoadSubSection(section);
             }
             else if (currentSection.Equals("NORMALIZE")
-                     && currentSubsection.Equals("CONFIG", StringComparison.InvariantCultureIgnoreCase))
+                     && currentSubsection.Equals("CONFIG", StringComparison.OrdinalIgnoreCase))
             {
                 LoadSubSection(section);
             }
             else if (currentSection.Equals("CLUSTER")
-                     && currentSubsection.Equals("CONFIG", StringComparison.InvariantCultureIgnoreCase))
+                     && currentSubsection.Equals("CONFIG", StringComparison.OrdinalIgnoreCase))
             {
                 LoadSubSection(section);
             }
             else if (currentSection.Equals("SERIES")
-                     && currentSubsection.Equals("CONFIG", StringComparison.InvariantCultureIgnoreCase))
+                     && currentSubsection.Equals("CONFIG", StringComparison.OrdinalIgnoreCase))
             {
                 LoadSubSection(section);
             }
             else if (currentSection.Equals("RANDOMIZE")
-                     && currentSubsection.Equals("CONFIG", StringComparison.InvariantCultureIgnoreCase))
+                     && currentSubsection.Equals("CONFIG", StringComparison.OrdinalIgnoreCase))
             {
                 LoadSubSection(section);
             }
             else if (currentSection.Equals("SEGREGATE")
-                     && currentSubsection.Equals("CONFIG", StringComparison.InvariantCultureIgnoreCase))
+                     && currentSubsection.Equals("CONFIG", StringComparison.OrdinalIgnoreCase))
             {
                 LoadSubSection(section);
             }
             else if (currentSection.Equals("SEGREGATE")
-                     && currentSubsection.Equals("FILES", StringComparison.InvariantCultureIgnoreCase))
+                     && currentSubsection.Equals("FILES", StringComparison.OrdinalIgnoreCase))
             {
                 HandleSegregateFiles(section);
             }
             else if (currentSection.Equals("GENERATE")
-                     && currentSubsection.Equals("CONFIG", StringComparison.InvariantCultureIgnoreCase))
+                     && currentSubsection.Equals("CONFIG", StringComparison.OrdinalIgnoreCase))
             {
                 LoadSubSection(section);
             }
             else if (currentSection.Equals("HEADER")
-                     && currentSubsection.Equals("DATASOURCE", StringComparison.InvariantCultureIgnoreCase))
+                     && currentSubsection.Equals("DATASOURCE", StringComparison.OrdinalIgnoreCase))
             {
                 LoadSubSection(section);
             }
             else if (currentSection.Equals("ML")
-                     && currentSubsection.Equals("CONFIG", StringComparison.InvariantCultureIgnoreCase))
+                     && currentSubsection.Equals("CONFIG", StringComparison.OrdinalIgnoreCase))
             {
                 LoadSubSection(section);
             }
             else if (currentSection.Equals("ML")
-                     && currentSubsection.Equals("TRAIN", StringComparison.InvariantCultureIgnoreCase))
+                     && currentSubsection.Equals("TRAIN", StringComparison.OrdinalIgnoreCase))
             {
                 LoadSubSection(section);
             }
@@ -491,7 +491,7 @@ namespace Encog.App.Analyst.Script
                 HandleTask(section);
             }
             else if (currentSection.Equals("BALANCE")
-                     && currentSubsection.Equals("CONFIG", StringComparison.InvariantCultureIgnoreCase))
+                     && currentSubsection.Equals("CONFIG", StringComparison.OrdinalIgnoreCase))
             {
                 LoadSubSection(section);
             }
