@@ -106,7 +106,7 @@ namespace Encog.Util
             form.Add("query", searchFor);
             form.Complete();
 
-            var enc = new ASCIIEncoding();
+            var enc = new UTF8Encoding();
 
             String str = enc.GetString(mstream.GetBuffer());
             mstream.Dispose();

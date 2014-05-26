@@ -272,7 +272,7 @@ namespace Encog.ML.SVM
                     var ba = new MemoryStream();
                     var w = new StreamWriter(ba);
                     svm.svm_save_model(w, svm2.Model);
-                    var enc = new ASCIIEncoding();
+                    var enc = new UTF8Encoding();
                     xout.Write(enc.GetString(ba.ToArray()));
                     w.Close();
                     ba.Close();
