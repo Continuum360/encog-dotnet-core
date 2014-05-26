@@ -92,7 +92,7 @@ namespace Encog.Util.HTTP
         /// <returns>True if the URL contains invalid characters.</returns>
         public static bool ContainsInvalidURLCharacters(String url)
         {
-            return url.Any(ch => ch > 255);
+            return url.ToCharArray().Any(ch => ch > 255);
         }
 
         /// <summary>

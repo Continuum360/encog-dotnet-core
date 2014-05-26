@@ -239,7 +239,7 @@ namespace Encog.Parse
         /// <returns>True if the string was found.</returns>
         public bool Peek(String str)
         {
-            return !str.Where((t, i) => Peek(i) != t).Any();
+            return !str.ToCharArray().Where((t, i) => Peek(i) != t).Any();
         }
 
 

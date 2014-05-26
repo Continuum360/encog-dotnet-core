@@ -479,7 +479,7 @@ namespace Encog.Parse.Tags.Read
             // handle locked end tag
             if (_lockedEndTag != null)
             {
-                if (PeekEndTag(_lockedEndTag))
+                if (PeekEndTag(_lockedEndTag.ToCharArray()))
                 {
                     _lockedEndTag = null;
                 }
