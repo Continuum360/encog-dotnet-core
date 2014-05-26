@@ -91,7 +91,7 @@ namespace Encog.Util
                 var chars = new byte[BufferSize];
                 while ((istream.Read(chars, 0, chars.Length)) > -1)
                 {
-                    string s = Encoding.UTF8.GetString(chars);
+                    string s = Encoding.UTF8.GetString(chars, 0, chars.Length);
                     sb.Append(s);
                 }
 
