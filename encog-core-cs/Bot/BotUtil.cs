@@ -156,7 +156,7 @@ namespace Encog.Bot
                 }
             }
 
-            byte[] bytes = Encoding.ASCII.GetBytes(postString.ToString());
+            byte[] bytes = Encoding.UTF8.GetBytes(postString.ToString());
             req.ContentLength = bytes.Length;
 
             Stream os = req.GetRequestStream();
