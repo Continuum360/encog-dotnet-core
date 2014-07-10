@@ -55,6 +55,8 @@ namespace Encog.Neural.Prune
     ///
     public class PruneIncremental : ConcurrentJob
     {
+        private readonly object _lock = new object();
+
         /// <summary>
         /// The ranges for the hidden layers.
         /// </summary>
@@ -599,75 +601,75 @@ namespace Encog.Neural.Prune
         ///
         /// <param name="network">The network to consider.</param>
         /// <param name="error">The error for this network.</param>
-        [MethodImpl(MethodImplOptions.Synchronized)]
         private void UpdateBest(BasicNetwork network,
                                 double error)
         {
-            _high = Math.Max(_high, error);
-            _low = Math.Min(_low, error);
-
-            int selectedIndex = -1;
-
-            // find a place for this in the top networks, if it is a top network
-            for (int i = 0; i < _topNetworks.Length; i++)
+            lock (_lock)
             {
-                if (_topNetworks[i] == null)
+                _high = Math.Max(_high, error);
+                _low = Math.Min(_low, error);
+
+                int selectedIndex = -1;
+
+                // find a place for this in the top networks, if it is a top network
+                for (int i = 0; i < _topNetworks.Length; i++)
                 {
-                    selectedIndex = i;
-                    break;
-                }
-                else if (_topErrors[i] > error)
-                {
-                    // this network might be worth replacing, see if the one
-                    // already selected is a better option.
-                    if ((selectedIndex == -1)
-                        || (_topErrors[selectedIndex] < _topErrors[i]))
+                    if (_topNetworks[i] == null)
                     {
                         selectedIndex = i;
+                        break;
+                    }
+                    else if (_topErrors[i] > error)
+                    {
+                        // this network might be worth replacing, see if the one
+                        // already selected is a better option.
+                        if ((selectedIndex == -1) || (_topErrors[selectedIndex] < _topErrors[i]))
+                        {
+                            selectedIndex = i;
+                        }
                     }
                 }
-            }
 
-            // replace the selected index
-            if (selectedIndex != -1)
-            {
-                _topErrors[selectedIndex] = error;
-                _topNetworks[selectedIndex] = network;
-            }
-
-            // now select the best network, which is the most simple of the
-            // top networks.
-
-            BasicNetwork choice = null;
-
-
-            foreach (BasicNetwork n  in  _topNetworks)
-            {
-                if (n == null)
+                // replace the selected index
+                if (selectedIndex != -1)
                 {
-                    continue;
+                    _topErrors[selectedIndex] = error;
+                    _topNetworks[selectedIndex] = network;
                 }
 
-                if (choice == null)
+                // now select the best network, which is the most simple of the
+                // top networks.
+
+                BasicNetwork choice = null;
+
+
+                foreach (BasicNetwork n  in  _topNetworks)
                 {
-                    choice = n;
-                }
-                else
-                {
-                    if (n.Structure.CalculateSize() < choice.Structure
-                                                          .CalculateSize())
+                    if (n == null)
+                    {
+                        continue;
+                    }
+
+                    if (choice == null)
                     {
                         choice = n;
                     }
+                    else
+                    {
+                        if (n.Structure.CalculateSize() < choice.Structure.CalculateSize())
+                        {
+                            choice = n;
+                        }
+                    }
                 }
-            }
 
-            if (choice != _bestNetwork)
-            {
-                _bestNetwork = choice;
-                EncogLogging.Log(EncogLogging.LevelDebug,
-                                 "Prune found new best network: error=" + error
-                                 + ", network=" + choice);
+                if (choice != _bestNetwork)
+                {
+                    _bestNetwork = choice;
+                    EncogLogging.Log(
+                        EncogLogging.LevelDebug,
+                        "Prune found new best network: error=" + error + ", network=" + choice);
+                }
             }
         }
     }
