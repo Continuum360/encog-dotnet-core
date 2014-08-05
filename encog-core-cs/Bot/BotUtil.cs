@@ -157,8 +157,11 @@ namespace Encog.Bot
             }
 
             byte[] bytes = Encoding.UTF8.GetBytes(postString.ToString());
+#if PORTABLE
+            req.SetContentLength(bytes.Length);
+#else
             req.ContentLength = bytes.Length;
-
+#endif
             Stream os = req.GetRequestStream();
             os.Write(bytes, 0, bytes.Length);
             os.Close();
@@ -182,14 +185,22 @@ namespace Encog.Bot
             WebRequest webRequest = WebRequest.Create(uri);
             //webRequest.ContentType = "application/x-www-form-urlencoded";
             webRequest.Method = "POST";
+#if PORTABLE
+            webRequest.SetContentLength(length);
+#else
             webRequest.ContentLength = length;
+#endif
 
 
             Stream os = null;
             try
             {
                 // send the Post
+#if PORTABLE
+                webRequest.SetContentLength(bytes.Length); //Count bytes to send
+#else
                 webRequest.ContentLength = bytes.Length; //Count bytes to send
+#endif
                 os = webRequest.GetRequestStream();
                 os.Write(bytes, 0, length); //Send it
             }

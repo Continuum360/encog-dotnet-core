@@ -90,7 +90,11 @@ namespace Encog.Bot.Browse
                 else
                 {
                     http = WebRequest.Create(form.Action.Url);
+#if PORTABLE
+                    http.SetTimeout(30000);
+#else
                     http.Timeout = 30000;
+#endif
                     http.ContentType = "application/x-www-form-urlencoded";
                     http.Method = "POST";
                     ostream = http.GetRequestStream();
