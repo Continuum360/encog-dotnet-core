@@ -57,7 +57,7 @@ namespace Encog.Util.NetworkUtil
         /// <param name="fileName">Name of the file.</param>
         public static void SaveMatrix(double[][] surface, string fileName)
         {
-            using (var sw = new StreamWriter(fileName, false))
+            using (var sw = new StreamWriter(System.IO.File.OpenWrite(fileName)))
             {
                 foreach (var t in surface)
                 {

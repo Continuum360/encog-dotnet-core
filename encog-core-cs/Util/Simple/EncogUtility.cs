@@ -46,6 +46,8 @@ using Encog.Neural.Freeform.Training;
 
 namespace Encog.Util.Simple
 {
+    using File = System.IO.File;
+
     /// <summary>
     /// General utility class for Encog.  Provides for some common Encog procedures.
     /// </summary>
@@ -434,7 +436,7 @@ namespace Encog.Util.Simple
         {
             try
             {
-                var file = new StreamWriter(targetFile.ToString());
+                var file = new StreamWriter(File.OpenWrite(targetFile.ToString()));
 
                 foreach (IMLDataPair data in set)
                 {

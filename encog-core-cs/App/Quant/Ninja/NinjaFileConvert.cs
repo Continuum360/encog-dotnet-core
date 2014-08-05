@@ -40,7 +40,7 @@ namespace Encog.App.Quant.Ninja
         public void Process(string target)
         {
             var csv = new ReadCSV(InputFilename.ToString(), ExpectInputHeaders, Format);
-            TextWriter tw = new StreamWriter(target);
+            TextWriter tw = new StreamWriter(File.OpenWrite(target));
 
             ResetStatus();
             while (csv.Next())

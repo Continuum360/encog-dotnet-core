@@ -88,7 +88,7 @@ namespace Encog.App.Quant.Ninja
         /// <param name="format">The CSV format.</param>
         public void Open(String filename, bool headers, CSVFormat format)
         {
-            tw = new StreamWriter(filename);
+            tw = new StreamWriter(File.OpenWrite(filename));
             this.format = format;
             this.headers = headers;
         }

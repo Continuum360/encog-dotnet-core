@@ -26,6 +26,8 @@ using System.Text;
 
 namespace Encog.Util.File
 {
+    using File = System.IO.File;
+
     /// <summary>
     /// Directory utilities.
     /// </summary>
@@ -129,7 +131,7 @@ namespace Encog.Util.File
             try
             {
                 var result = new StringBuilder();
-                using (var sr = new StreamReader(filename))
+                using (var sr = new StreamReader(File.OpenRead(filename)))
                 {
                     String line;
 

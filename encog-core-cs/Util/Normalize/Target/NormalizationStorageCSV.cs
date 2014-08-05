@@ -27,6 +27,8 @@ using Encog.Util.CSV;
 
 namespace Encog.Util.Normalize.Target
 {
+    using File = System.IO.File;
+
     /// <summary>
     /// Store normalized data to a CSV file.
     /// </summary>
@@ -85,7 +87,7 @@ namespace Encog.Util.Normalize.Target
         /// </summary>
         public void Open()
         {
-            _output = new StreamWriter(_outputFile);
+            _output = new StreamWriter(File.OpenWrite(_outputFile));
         }
 
         /// <summary>

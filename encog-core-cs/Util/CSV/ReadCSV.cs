@@ -28,6 +28,8 @@ using System.Text;
 
 namespace Encog.Util.CSV
 {
+    using File = System.IO.File;
+
     /// <summary>
     /// Read and parse CSV format files.
     /// </summary>
@@ -88,7 +90,7 @@ namespace Encog.Util.CSV
                        char delim)
         {
             var format = new CSVFormat(CSVFormat.DecimalCharacter, delim);
-            _reader = new StreamReader(filename);
+            _reader = new StreamReader(File.OpenRead(filename));
             _delim = delim;
             Begin(headers, format);
         }
@@ -105,7 +107,7 @@ namespace Encog.Util.CSV
         public ReadCSV(String filename, bool headers,
                        CSVFormat format)
         {
-            _reader = new StreamReader(filename);
+            _reader = new StreamReader(File.OpenRead(filename));
             Begin(headers, format);
         }
 
