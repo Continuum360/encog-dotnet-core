@@ -25,6 +25,10 @@ using System.IO;
 using System.Text;
 using Encog.Bot;
 
+#if PORTABLE
+using Path = System.IO.ShimPath;
+#endif
+
 namespace Encog.Util.File
 {
     /// <summary>

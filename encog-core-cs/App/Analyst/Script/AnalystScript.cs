@@ -33,6 +33,10 @@ using Encog.App.Analyst.Script.Task;
 using Encog.Util.CSV;
 using Encog.Util.File;
 
+#if PORTABLE
+using Path = System.IO.ShimPath;
+#endif
+
 namespace Encog.App.Analyst.Script
 {
     /// <summary>

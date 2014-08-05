@@ -29,6 +29,10 @@ using Encog.ML.Data.Basic;
 using Encog.ML.Data.Buffer;
 using Encog.Util.File;
 
+#if PORTABLE
+using Path = System.IO.ShimPath;
+#endif
+
 namespace Encog.Util.Banchmark
 {
     /// <summary>
