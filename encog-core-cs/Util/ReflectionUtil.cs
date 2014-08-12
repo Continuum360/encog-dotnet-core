@@ -56,7 +56,7 @@ namespace Encog.Util
         {
         }
 
-
+#if !PORTABLE
         /// <summary>
         /// Find the specified field, look also in superclasses.
         /// </summary>
@@ -174,6 +174,7 @@ namespace Encog.Util
             Object[] objs = type.GetMembers(BindingFlags.Public | BindingFlags.Static);
             return objs.Cast<MemberInfo>().FirstOrDefault(obj => obj.Name.Equals(v));
         }
+#endif
 
         /// <summary>
         /// Loop over all loaded assembles and try to create the class.
