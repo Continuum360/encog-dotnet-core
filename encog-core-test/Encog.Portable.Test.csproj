@@ -1,0 +1,221 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{52D77331-B7D8-4BFF-96FD-2C1E0DB6E17F}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Encog</RootNamespace>
+    <AssemblyName>encog-core-test</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{3AC096D0-A1C2-E12C-1390-A8335801FDAB};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+    <ReferencePath>$(ProgramFiles)\Common Files\microsoft shared\VSTT\$(VisualStudioVersion)\UITestExtensionPackages</ReferencePath>
+    <IsCodedUITest>False</IsCodedUITest>
+    <TestProjectType>UnitTest</TestProjectType>
+    <TargetFrameworkProfile />
+    <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\</SolutionDir>
+    <RestorePackages>true</RestorePackages>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <IntermediateOutputPath>obj\Portable\Debug\</IntermediateOutputPath>
+    <OutputPath>bin\Portable\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <IntermediateOutputPath>obj\Portable\Release\</IntermediateOutputPath>
+    <OutputPath>bin\Portable\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Shim">
+      <HintPath>..\packages\shim.0.9.2-pre3\lib\net45\Shim.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+  </ItemGroup>
+  <Choose>
+    <When Condition="('$(VisualStudioVersion)' == '10.0' or '$(VisualStudioVersion)' == '') and '$(TargetFrameworkVersion)' == 'v3.5'">
+      <ItemGroup>
+        <Reference Include="Microsoft.VisualStudio.QualityTools.UnitTestFramework, Version=10.1.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
+      </ItemGroup>
+    </When>
+    <Otherwise>
+      <ItemGroup>
+        <Reference Include="Microsoft.VisualStudio.QualityTools.UnitTestFramework" />
+      </ItemGroup>
+    </Otherwise>
+  </Choose>
+  <ItemGroup>
+    <Compile Include="App\Analyst\AnalystTestingUtility.cs" />
+    <Compile Include="App\Analyst\TestAnalystClassification.cs" />
+    <Compile Include="App\Analyst\TestAnalystRegression.cs" />
+    <Compile Include="App\Analyst\TestEncogAnalyst.cs" />
+    <Compile Include="App\CSV\TestBalanceCSV.cs" />
+    <Compile Include="App\CSV\TestFilter.cs" />
+    <Compile Include="App\CSV\TestNinjaFileConvert.cs" />
+    <Compile Include="App\CSV\TestNinjaStreamWriter.cs" />
+    <Compile Include="App\CSV\TestNormalizeArray.cs" />
+    <Compile Include="App\CSV\TestProcessIndicators.cs" />
+    <Compile Include="App\CSV\TestSegregateCSV.cs" />
+    <Compile Include="App\CSV\TestShuffle.cs" />
+    <Compile Include="App\CSV\TestSort.cs" />
+    <Compile Include="App\CSV\TestYahooDownload.cs" />
+    <Compile Include="Bot\Browse\TestAddress.cs" />
+    <Compile Include="Bot\Browse\TestBrowse.cs" />
+    <Compile Include="Bot\Browse\TestWebPageData.cs" />
+    <Compile Include="Bot\HTML\TestParseHTML.cs" />
+    <Compile Include="Bot\TestBotUtil.cs" />
+    <Compile Include="Engine\Network\Activation\TestActivationBiPolar.cs" />
+    <Compile Include="Engine\Network\Activation\TestActivationGaussian.cs" />
+    <Compile Include="Engine\Network\Activation\TestActivationLinear.cs" />
+    <Compile Include="Engine\Network\Activation\TestActivationLOG.cs" />
+    <Compile Include="Engine\Network\Activation\TestActivationSigmoid.cs" />
+    <Compile Include="Engine\Network\Activation\TestActivationSIN.cs" />
+    <Compile Include="Engine\Network\Activation\TestActivationSoftMax.cs" />
+    <Compile Include="Engine\Network\Activation\TestActivationTANH.cs" />
+    <Compile Include="MathUtil\Matrices\Hessian\TestHessian.cs" />
+    <Compile Include="MathUtil\Matrices\TestBiPolarUtil.cs" />
+    <Compile Include="MathUtil\Matrices\TestMatrix.cs" />
+    <Compile Include="MathUtil\Matrices\TestMatrixMath.cs" />
+    <Compile Include="ML\Bayes\TestBayesNet.cs" />
+    <Compile Include="ML\Bayes\TestEnumerationQuery.cs" />
+    <Compile Include="ML\Bayes\TestK2.cs" />
+    <Compile Include="ML\Bayes\TestSamplingQuery.cs" />
+    <Compile Include="ML\Data\Basic\TestBasicMLSequenceSet.cs" />
+    <Compile Include="ML\Data\Buffer\TestBinaryData.cs" />
+    <Compile Include="ML\Data\Buffer\TestBufferedNeuralDataSet.cs" />
+    <Compile Include="ML\Data\Dynamic\TestDynamic.cs" />
+    <Compile Include="ML\Data\Market\CSVLoaderTest.cs" />
+    <Compile Include="ML\Data\Market\TestMarketData.cs" />
+    <Compile Include="ML\Data\Market\TestYahooLoader.cs" />
+    <Compile Include="ML\Data\Specific\TestCSVNeuralData.cs" />
+    <Compile Include="ML\Data\Temporal\TestTemporal.cs" />
+    <Compile Include="ML\EA\Sort\TestMaximizeAdjustedScoreComp.cs" />
+    <Compile Include="ML\EA\Sort\TestMaximizeScoreComp.cs" />
+    <Compile Include="ML\EA\Sort\TestMinimizeAdjustedScoreComp.cs" />
+    <Compile Include="ML\EA\Sort\TestMinimizeScoreComp.cs" />
+    <Compile Include="ML\HMM\TestHMM.cs" />
+    <Compile Include="ML\KMeans\TestKMeans.cs" />
+    <Compile Include="ML\Prg\Species\TestCompareEncogProgram.cs" />
+    <Compile Include="ML\Prg\TestEncogProgram.cs" />
+    <Compile Include="ML\Prg\TestProgramClone.cs" />
+    <Compile Include="ML\Prg\Train\Crossover\TestSubtreeCrossover.cs" />
+    <Compile Include="ML\Prg\Train\Rewrite\TestRewriteAlgebraic.cs" />
+    <Compile Include="ML\Prg\Train\TestGenerate.cs" />
+    <Compile Include="Neural\Networks\TestConsistency.cs" />
+    <Compile Include="Neural\Networks\Training\Competitive\Neighborhood\TestNeighborhood.cs" />
+    <Compile Include="Neural\Networks\Training\Competitive\TestCompetitive.cs" />
+    <Compile Include="Neural\Networks\Training\TestFolded.cs" />
+    <Compile Include="Neural\Networks\Training\TestTraining.cs" />
+    <Compile Include="Parse\Expression\Common\TestBoolean.cs" />
+    <Compile Include="Parse\Expression\Common\TestExpression.cs" />
+    <Compile Include="Parse\Expression\Common\TestExpressionVar.cs" />
+    <Compile Include="Parse\Expression\Common\TestFunctions.cs" />
+    <Compile Include="Parse\Expression\Common\TestRenderCommon.cs" />
+    <Compile Include="Parse\Expression\Common\TestString.cs" />
+    <Compile Include="Parse\Expression\EPL\TestRenderEPL.cs" />
+    <Compile Include="Parse\Expression\RPN\TestRenderRPN.cs" />
+    <Compile Include="Parse\Tags\Read\TestXMLRead.cs" />
+    <Compile Include="Parse\Tags\Write\TestXmlWrite.cs" />
+    <Compile Include="Persist\TestPersistART.cs" />
+    <Compile Include="Persist\TestPersistBAM.cs" />
+    <Compile Include="Persist\TestPersistBasicNetwork.cs" />
+    <Compile Include="Persist\TestPersistBayes.cs" />
+    <Compile Include="Persist\TestPersistBoltzmann.cs" />
+    <Compile Include="Persist\TestPersistCPN.cs" />
+    <Compile Include="Persist\TestPersistEPLPopulation.cs" />
+    <Compile Include="Persist\TestPersistFreeform.cs" />
+    <Compile Include="Persist\TestPersistHMM.cs" />
+    <Compile Include="Persist\TestPersistHopfield.cs" />
+    <Compile Include="Persist\TestPersistNEAT.cs" />
+    <Compile Include="Persist\TestPersistPNN.cs" />
+    <Compile Include="Persist\TestPersistPopulation.cs" />
+    <Compile Include="Persist\TestPersistRBF.cs" />
+    <Compile Include="Persist\TestPersistSOM.cs" />
+    <Compile Include="Persist\TestPersistSVM.cs" />
+    <Compile Include="Persist\TestPersistTrainingContinuation.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Util\NetworkUtil.cs" />
+    <Compile Include="Util\Normalize\TestMapped.cs" />
+    <Compile Include="Util\Normalize\TestMultiplicative.cs" />
+    <Compile Include="Util\Normalize\TestNormArray.cs" />
+    <Compile Include="Util\Normalize\TestNormCSV.cs" />
+    <Compile Include="Util\Normalize\TestNormDataSet.cs" />
+    <Compile Include="Util\Normalize\TestSegregate.cs" />
+    <Compile Include="Util\Normalize\TestZAxis.cs" />
+    <Compile Include="Util\SerializeRoundTrip.cs" />
+    <Compile Include="Util\TempDir.cs" />
+    <Compile Include="Util\TestResourceLoader.cs" />
+    <Compile Include="Util\XOR.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Resources\hello.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+    <None Include="Resources\iris-euro.csv" />
+    <None Include="Resources\iris.csv" />
+    <None Include="Resources\simple-c.ega" />
+    <None Include="Resources\simple-r.ega" />
+    <None Include="Resources\simple.csv" />
+    <None Include="Resources\xor-nn.eg" />
+    <None Include="smallCSV.csv" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\encog-core-cs\Encog.Portable.csproj">
+      <Project>{5192c821-b314-4ae6-9f20-6ae21b65db8f}</Project>
+      <Name>Encog.Portable</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Choose>
+    <When Condition="'$(VisualStudioVersion)' == '10.0' And '$(IsCodedUITest)' == 'True'">
+      <ItemGroup>
+        <Reference Include="Microsoft.VisualStudio.QualityTools.CodedUITestFramework, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+          <Private>False</Private>
+        </Reference>
+        <Reference Include="Microsoft.VisualStudio.TestTools.UITest.Common, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+          <Private>False</Private>
+        </Reference>
+        <Reference Include="Microsoft.VisualStudio.TestTools.UITest.Extension, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+          <Private>False</Private>
+        </Reference>
+        <Reference Include="Microsoft.VisualStudio.TestTools.UITesting, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+          <Private>False</Private>
+        </Reference>
+      </ItemGroup>
+    </When>
+  </Choose>
+  <Import Project="$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets" Condition="Exists('$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets')" />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(SolutionDir)\.nuget\NuGet.targets" Condition="Exists('$(SolutionDir)\.nuget\NuGet.targets')" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Enable NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('$(SolutionDir)\.nuget\NuGet.targets')" Text="$([System.String]::Format('$(ErrorText)', '$(SolutionDir)\.nuget\NuGet.targets'))" />
+  </Target>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
