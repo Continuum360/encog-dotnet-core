@@ -23,7 +23,12 @@
 using System;
 using System.Collections.Generic;
 using Encog.Engine.Network.Activation;
+
+#if NETFX_CORE
+using Microsoft.VisualStudio.TestPlatform.UnitTestFramework;
+#else
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+#endif
 using Encog.Neural.Flat;
 using Encog.Neural.Networks;
 using Encog.Neural.Networks.Layers;

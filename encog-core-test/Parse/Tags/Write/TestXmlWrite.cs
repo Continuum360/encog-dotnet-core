@@ -22,10 +22,21 @@
 //
 using System.IO;
 using System.Text;
+
+#if NETFX_CORE
+using Microsoft.VisualStudio.TestPlatform.UnitTestFramework;
+#else
+
+#if NETFX_CORE
+using Microsoft.VisualStudio.TestPlatform.UnitTestFramework;
+#else
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+#endif
+#endif
 
 namespace Encog.Parse.Tags.Write
 {
+ 
     [TestClass]
     public class TestXmlWrite
     {
@@ -39,10 +50,11 @@ namespace Encog.Parse.Tags.Write
             write.BeginTag("tag");
             write.EndTag();
             write.EndDocument();
+            var length = (int)ms.Length;
             ms.Close();
 
-            var enc = new ASCIIEncoding();
-            string str = enc.GetString(ms.ToArray());
+            var enc = new UTF8Encoding();
+            string str = enc.GetString(ms.ToArray(), 0, length);
 
             Assert.AreEqual("<tag name=\"value\"></tag>", str);
         }

@@ -28,7 +28,12 @@ using Encog.Neural.Networks.Training.Cross;
 using Encog.Neural.Networks.Training.Propagation.Resilient;
 using Encog.Util;
 using Encog.Util.Simple;
+
+#if NETFX_CORE
+using Microsoft.VisualStudio.TestPlatform.UnitTestFramework;
+#else
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+#endif
 
 namespace Encog.Neural.Networks.Training
 {

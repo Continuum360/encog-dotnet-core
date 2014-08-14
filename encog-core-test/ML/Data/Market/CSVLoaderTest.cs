@@ -28,7 +28,13 @@ using System.Collections.Generic;
 using System.Linq;
 using Encog.ML.Data.Market.Loader;
 using Encog.ML.Data.Temporal;
+
+#if NETFX_CORE
+using Assembly = System.Reflection.ShimAssembly;
+using Microsoft.VisualStudio.TestPlatform.UnitTestFramework;
+#else
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+#endif
 
 namespace Encog.ML.Data.Market
 {
@@ -37,7 +43,7 @@ namespace Encog.ML.Data.Market
     {
 
 
-
+#if !NETFX_CORE
         static public string AssemblyDirectory
         {
             get
@@ -48,7 +54,7 @@ namespace Encog.ML.Data.Market
                 return Path.GetDirectoryName(path);
             }
         }
-
+#endif
         [TestMethod]
         public void TestCSVLoader()
         {
@@ -63,7 +69,11 @@ namespace Encog.ML.Data.Market
             marketData.SequenceGrandularity = Util.Time.TimeUnit.Hours;
             var begin = new DateTime(2006, 1, 1);
             var end = new DateTime(2007, 7, 31);
+#if NETFX_CORE
+            loader.GetFile((".\\smallCSV.csv"));
+#else
             loader.GetFile((AssemblyDirectory + "\\smallCSV.csv"));
+#endif
             marketData.Load(begin, end);
             marketData.Generate();
             // first test the points

@@ -25,7 +25,12 @@ using Encog.ML.Data;
 using Encog.ML.Data.Basic;
 using Encog.Neural.SOM;
 using Encog.Neural.SOM.Training.Neighborhood;
+
+#if NETFX_CORE
+using Microsoft.VisualStudio.TestPlatform.UnitTestFramework;
+#else
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+#endif
 
 namespace Encog.Neural.Networks.Training.Competitive
 {

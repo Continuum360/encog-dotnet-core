@@ -22,7 +22,12 @@
 //
 using System.IO;
 using System.Text;
+
+#if NETFX_CORE
+using Microsoft.VisualStudio.TestPlatform.UnitTestFramework;
+#else
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+#endif
 
 namespace Encog.Parse.Tags.Read
 {
@@ -34,7 +39,7 @@ namespace Encog.Parse.Tags.Read
         [TestMethod]
         public void TestRead()
         {
-            var enc = new ASCIIEncoding();
+            var enc = new UTF8Encoding();
             var bis = new MemoryStream(enc.GetBytes(XML));
             var read = new ReadXML(bis);
             Assert.AreEqual(0, read.Read());

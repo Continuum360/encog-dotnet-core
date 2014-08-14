@@ -24,7 +24,12 @@ using System.IO;
 using Encog.App.Analyst.CSV.Sort;
 using Encog.Util;
 using Encog.Util.CSV;
+
+#if NETFX_CORE
+using Microsoft.VisualStudio.TestPlatform.UnitTestFramework;
+#else
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+#endif
 
 namespace Encog.App.CSV
 {
@@ -37,7 +42,7 @@ namespace Encog.App.CSV
 
         public void GenerateTestFileHeadings(bool header)
         {
-            var tw = new StreamWriter(InputName.ToString());
+            var tw = new StreamWriter(File.OpenWrite(InputName.ToString()));
 
             if (header)
             {
@@ -63,7 +68,7 @@ namespace Encog.App.CSV
             norm.SortOrder.Add(new SortedField(1, SortType.SortString, true));
             norm.Process(InputName, OutputName, true, CSVFormat.English);
 
-            var tr = new StreamReader(OutputName.ToString());
+            var tr = new StreamReader(File.OpenRead(OutputName.ToString()));
 
             Assert.AreEqual("\"a\",\"b\"", tr.ReadLine());
             Assert.AreEqual("\"one\",1", tr.ReadLine());
@@ -90,7 +95,7 @@ namespace Encog.App.CSV
             norm.ProduceOutputHeaders = false;
             norm.Process(InputName, OutputName, false, CSVFormat.English);
 
-            var tr = new StreamReader(OutputName.ToString());
+            var tr = new StreamReader(File.OpenRead(OutputName.ToString()));
 
             Assert.AreEqual("\"one\",1", tr.ReadLine());
             Assert.AreEqual("\"two\",2", tr.ReadLine());

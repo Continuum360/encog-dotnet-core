@@ -24,7 +24,12 @@ using System.IO;
 using Encog.App.Quant.Ninja;
 using Encog.Util;
 using Encog.Util.CSV;
+
+#if NETFX_CORE
+using Microsoft.VisualStudio.TestPlatform.UnitTestFramework;
+#else
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+#endif
 
 namespace Encog.App.CSV
 {
@@ -38,7 +43,7 @@ namespace Encog.App.CSV
 
         public void GenerateTestFileHeadings(bool header)
         {
-            var tw = new StreamWriter(InputName.ToString());
+            var tw = new StreamWriter(File.OpenWrite(InputName.ToString()));
                 
             if (header)
             {
@@ -60,7 +65,7 @@ namespace Encog.App.CSV
             norm.Analyze(InputName, true, CSVFormat.English);
             norm.Process(OutputName.ToString());
 
-            var tr = new StreamReader(OutputName.ToString());
+            var tr = new StreamReader(File.OpenRead(OutputName.ToString()));
 
             Assert.AreEqual("20100101 000000;10;12;8;9;1000", tr.ReadLine());
             Assert.AreEqual("20100102 000000;9;17;7;15;1000", tr.ReadLine());

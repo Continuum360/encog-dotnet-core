@@ -24,6 +24,10 @@ using System.IO;
 using Encog.Util.File;
 using Directory = System.IO.Directory;
 
+#if NETFX_CORE
+using Path = System.IO.ShimPath;
+#endif
+
 namespace Encog.Util
 {
     public class TempDir

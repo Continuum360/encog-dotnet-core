@@ -23,7 +23,12 @@
 using System.IO;
 using Encog.ML.Data.Basic;
 using Encog.Util;
+
+#if NETFX_CORE
+using Microsoft.VisualStudio.TestPlatform.UnitTestFramework;
+#else
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+#endif
 
 namespace Encog.ML.Data.Buffer
 {

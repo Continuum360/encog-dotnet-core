@@ -24,7 +24,12 @@ using Encog.ML.Data.Basic;
 using Encog.Util.Normalize.Input;
 using Encog.Util.Normalize.Output;
 using Encog.Util.Normalize.Target;
+
+#if NETFX_CORE
+using Microsoft.VisualStudio.TestPlatform.UnitTestFramework;
+#else
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+#endif
 
 namespace Encog.Util.Normalize
 {

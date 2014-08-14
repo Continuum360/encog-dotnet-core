@@ -21,7 +21,12 @@
 // http://www.heatonresearch.com/copyright
 //
 using Encog.App.Analyst.Wizard;
+
+#if NETFX_CORE
+using Microsoft.VisualStudio.TestPlatform.UnitTestFramework;
+#else
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+#endif
 
 namespace Encog.App.Analyst
 {

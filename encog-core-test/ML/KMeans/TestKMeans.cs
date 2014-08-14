@@ -23,7 +23,12 @@
 using Encog.ML.Data;
 using Encog.ML.Data.Basic;
 using Encog.ML.Kmeans;
+
+#if NETFX_CORE
+using Microsoft.VisualStudio.TestPlatform.UnitTestFramework;
+#else
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+#endif
 
 namespace Encog.ML.KMeans
 {

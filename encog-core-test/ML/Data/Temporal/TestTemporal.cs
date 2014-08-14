@@ -23,7 +23,12 @@
 using System;
 using System.Collections.Generic;
 using Encog.Engine.Network.Activation;
+
+#if NETFX_CORE
+using Microsoft.VisualStudio.TestPlatform.UnitTestFramework;
+#else
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+#endif
 
 namespace Encog.ML.Data.Temporal
 {

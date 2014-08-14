@@ -23,7 +23,12 @@
 using Encog.ML.Data.Buffer.CODEC;
 using Encog.Util;
 using Encog.Util.CSV;
+
+#if NETFX_CORE
+using Microsoft.VisualStudio.TestPlatform.UnitTestFramework;
+#else
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+#endif
 
 namespace Encog.ML.Data.Buffer
 {

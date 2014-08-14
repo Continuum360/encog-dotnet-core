@@ -20,7 +20,12 @@
 // and trademarks visit:
 // http://www.heatonresearch.com/copyright
 //
+
+#if NETFX_CORE
+using Microsoft.VisualStudio.TestPlatform.UnitTestFramework;
+#else
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+#endif
 using Encog.Util.File;
 
 namespace Encog.Util

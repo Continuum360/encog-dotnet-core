@@ -24,7 +24,12 @@ using System;
 using System.Text;
 using System.Collections.Generic;
 using System.Linq;
+
+#if NETFX_CORE
+using Microsoft.VisualStudio.TestPlatform.UnitTestFramework;
+#else
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+#endif
 using Encog.Util;
 using System.IO;
 using Encog.ML.Bayesian;

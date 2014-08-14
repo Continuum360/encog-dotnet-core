@@ -23,7 +23,12 @@
 using System.IO;
 using System.Text;
 using Encog.Util;
+
+#if NETFX_CORE
+using Microsoft.VisualStudio.TestPlatform.UnitTestFramework;
+#else
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+#endif
 
 namespace Encog.ML.Data.Specific
 {
@@ -37,7 +42,7 @@ namespace Encog.ML.Data.Specific
 
         private static void GenerateCSV()
         {
-            TextWriter fp = new StreamWriter(Filename);
+            TextWriter fp = new StreamWriter(File.OpenWrite(Filename));
 
             for (int count = 0; count < XOR.XORInput.Length; count++)
             {

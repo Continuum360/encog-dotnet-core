@@ -24,7 +24,12 @@ using System.IO;
 using System.Text;
 using Encog.Parse.Tags;
 using Encog.Parse.Tags.Read;
+
+#if NETFX_CORE
+using Microsoft.VisualStudio.TestPlatform.UnitTestFramework;
+#else
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+#endif
 
 namespace Encog.Bot.HTML
 {
@@ -35,7 +40,7 @@ namespace Encog.Bot.HTML
         public void TestAttributeLess()
         {
             const string html = "12<b>12</b>1";
-            var enc = new ASCIIEncoding();
+            var enc = new UTF8Encoding();
             var bis = new MemoryStream(enc.GetBytes(html));
 
             var parse = new ReadHTML(bis);
@@ -58,7 +63,7 @@ namespace Encog.Bot.HTML
         public void TestAttributes()
         {
             const string html = "<img src=\"picture.gif\" alt=\"A Picture\">";
-            var enc = new ASCIIEncoding();
+            var enc = new UTF8Encoding();
             var bis = new MemoryStream(enc.GetBytes(html));
             var parse = new ReadHTML(bis);
             Assert.IsTrue(parse.Read() == 0);
@@ -74,7 +79,7 @@ namespace Encog.Bot.HTML
         public void TestAttributesNoDelim()
         {
             const string html = "<img src=picture.gif alt=APicture>";
-            var enc = new ASCIIEncoding();
+            var enc = new UTF8Encoding();
             var bis = new MemoryStream(enc.GetBytes(html));
             var parse = new ReadHTML(bis);
             Assert.IsTrue(parse.Read() == 0);
@@ -90,7 +95,7 @@ namespace Encog.Bot.HTML
         {
             const string html = "<br/>";
             const string htmlName = "br";
-            var enc = new ASCIIEncoding();
+            var enc = new UTF8Encoding();
             var bis = new MemoryStream(enc.GetBytes(html));
             var parse = new ReadHTML(bis);
             Assert.IsTrue(parse.Read() == 0);
@@ -109,7 +114,7 @@ namespace Encog.Bot.HTML
         public void TestBothWithAttributes()
         {
             const string html = "<img src=\"picture.gif\" alt=\"A Picture\"/>";
-            var enc = new ASCIIEncoding();
+            var enc = new UTF8Encoding();
             var bis = new MemoryStream(enc.GetBytes(html));
             var parse = new ReadHTML(bis);
             Assert.IsTrue(parse.Read() == 0);
@@ -119,7 +124,7 @@ namespace Encog.Bot.HTML
         public void TestComment()
         {
             const string html = "a<!-- Hello -->b";
-            var enc = new ASCIIEncoding();
+            var enc = new UTF8Encoding();
             var bis = new MemoryStream(enc.GetBytes(html));
             var parse = new ReadHTML(bis);
             Assert.IsTrue(parse.Read() == 'a');
@@ -131,7 +136,7 @@ namespace Encog.Bot.HTML
         public void TestScript()
         {
             const string html = "a<script>12</script>b";
-            var enc = new ASCIIEncoding();
+            var enc = new UTF8Encoding();
             var bis = new MemoryStream(enc.GetBytes(html));
             var parse = new ReadHTML(bis);
             Assert.IsTrue(parse.Read() == 'a');
@@ -146,7 +151,7 @@ namespace Encog.Bot.HTML
         public void TestScript2()
         {
             const string html = "a<script>1<2</script>b<br>";
-            var enc = new ASCIIEncoding();
+            var enc = new UTF8Encoding();
             var bis = new MemoryStream(enc.GetBytes(html));
             var parse = new ReadHTML(bis);
             Assert.IsTrue(parse.Read() == 'a');
@@ -163,7 +168,7 @@ namespace Encog.Bot.HTML
         public void TestToString()
         {     
             const  string html = "a<img src=\"picture.gif\" alt=\"A Picture\">b";
-            var enc = new ASCIIEncoding();
+            var enc = new UTF8Encoding();
             var bis = new MemoryStream(enc.GetBytes(html));
             var parse = new ReadHTML(bis);
             parse.ReadToTag();
@@ -174,7 +179,7 @@ namespace Encog.Bot.HTML
         public void TestTagToString()
         {
             const string html = "<br/>";
-            var enc = new ASCIIEncoding();
+            var enc = new UTF8Encoding();
             var bis = new MemoryStream(enc.GetBytes(html));
             var parse = new ReadHTML(bis);
             Assert.IsTrue(parse.Read() == 0);
@@ -184,7 +189,7 @@ namespace Encog.Bot.HTML
         public void TestSpecialCharacter()
         {
             const string html = "&lt;&gt;&#65;";
-            var enc = new ASCIIEncoding();
+            var enc = new UTF8Encoding();
             var bis = new MemoryStream(enc.GetBytes(html));
             var parse = new ReadHTML(bis);
             Assert.IsTrue(parse.Read() == '<');
@@ -196,7 +201,7 @@ namespace Encog.Bot.HTML
         public void TestSimpleAttribute()
         {
             const string html = "<!DOCTYPE \"test\">";
-            var enc = new ASCIIEncoding();
+            var enc = new UTF8Encoding();
             var bis = new MemoryStream(enc.GetBytes(html));
             var parse = new ReadHTML(bis);
             Assert.IsTrue(parse.Read() == 0);

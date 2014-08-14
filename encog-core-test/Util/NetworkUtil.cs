@@ -29,7 +29,12 @@ using Encog.Neural.Networks.Layers;
 using Encog.Engine.Network.Activation;
 using Encog.MathUtil.Randomize;
 using Encog.ML.Train;
+
+#if NETFX_CORE
+using Microsoft.VisualStudio.TestPlatform.UnitTestFramework;
+#else
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+#endif
 
 namespace Encog.Util
 {

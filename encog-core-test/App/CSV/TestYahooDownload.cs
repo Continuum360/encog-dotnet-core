@@ -26,7 +26,12 @@ using Encog.App.Quant;
 using Encog.App.Quant.Loader.Yahoo;
 using Encog.Util;
 using Encog.Util.CSV;
+
+#if NETFX_CORE
+using Microsoft.VisualStudio.TestPlatform.UnitTestFramework;
+#else
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+#endif
 
 namespace Encog.App.CSV
 {
@@ -65,7 +70,7 @@ namespace Encog.App.CSV
             yahoo.LoadAllData("yhoo", OutputName.ToString(), CSVFormat.English,
                               new DateTime(2000, 01, 01),
                               new DateTime(2000, 01, 10));
-            var tr = new StreamReader(OutputName.ToString());
+            var tr = new StreamReader(File.OpenRead(OutputName.ToString()));
 
             Assert.AreEqual(
                 "date,time,open price,high price,low price,close price,volume,adjusted price",

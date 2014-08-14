@@ -24,7 +24,12 @@ using Encog.ML.HMM.Alog;
 using Encog.ML.HMM.Distributions;
 using Encog.ML.HMM.Train.BW;
 using Encog.ML.HMM.Train.KMeans;
+
+#if NETFX_CORE
+using Microsoft.VisualStudio.TestPlatform.UnitTestFramework;
+#else
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+#endif
 
 namespace Encog.ML.HMM
 {

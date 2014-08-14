@@ -25,7 +25,12 @@ using Encog.Util.Normalize.Output;
 using Encog.Util.Normalize.Segregate;
 using Encog.Util.Normalize.Segregate.Index;
 using Encog.Util.Normalize.Target;
+
+#if NETFX_CORE
+using Microsoft.VisualStudio.TestPlatform.UnitTestFramework;
+#else
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+#endif
 
 namespace Encog.Util.Normalize
 {

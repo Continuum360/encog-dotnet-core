@@ -26,7 +26,12 @@ using Encog.Neural.Networks.Training.Propagation.Resilient;
 using Encog.Persist;
 using Encog.Util.Banchmark;
 using Encog.Util.Simple;
+
+#if NETFX_CORE
+using Microsoft.VisualStudio.TestPlatform.UnitTestFramework;
+#else
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+#endif
 using Encog.Util.Arrayutil;
 
 namespace Encog.Neural.Networks

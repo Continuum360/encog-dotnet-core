@@ -22,7 +22,17 @@
 //
 using Encog.MathUtil.RBF;
 using Encog.Neural.SOM.Training.Neighborhood;
+
+#if NETFX_CORE
+using Microsoft.VisualStudio.TestPlatform.UnitTestFramework;
+#else
+
+#if NETFX_CORE
+using Microsoft.VisualStudio.TestPlatform.UnitTestFramework;
+#else
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+#endif
+#endif
 
 namespace Encog.Neural.Networks.Training.Competitive.Neighborhood
 {

@@ -26,7 +26,12 @@ using System.IO;
 using Encog.App.Analyst.CSV.Shuffle;
 using Encog.Util;
 using Encog.Util.CSV;
+
+#if NETFX_CORE
+using Microsoft.VisualStudio.TestPlatform.UnitTestFramework;
+#else
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+#endif
 
 namespace Encog.App.CSV
 {
@@ -39,7 +44,7 @@ namespace Encog.App.CSV
 
         public void GenerateTestFileHeadings(bool header)
         {
-            var tw = new StreamWriter(InputName.ToString());
+            var tw = new StreamWriter(File.OpenWrite(InputName.ToString()));
 
             if (header)
             {
@@ -63,7 +68,7 @@ namespace Encog.App.CSV
             norm.Analyze(InputName, true, CSVFormat.English);
             norm.Process(OutputName);
 
-            var tr = new StreamReader(OutputName.ToString());
+            var tr = new StreamReader(File.OpenRead(OutputName.ToString()));
             String line;
             IDictionary<String, int> list = new Dictionary<String, int>();
 
@@ -89,7 +94,7 @@ namespace Encog.App.CSV
             norm.ProduceOutputHeaders = false;
             norm.Process(OutputName);
 
-            var tr = new StreamReader(OutputName.ToString());
+            var tr = new StreamReader(File.OpenRead(OutputName.ToString()));
             String line;
             IDictionary<String, int> list = new Dictionary<String, int>();
 

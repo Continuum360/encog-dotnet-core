@@ -26,7 +26,12 @@ using Encog.ML.Data.Basic;
 using Encog.Neural.Freeform;
 using Encog.Neural.Networks;
 using Encog.Neural.Networks.Layers;
+
+#if NETFX_CORE
+using Microsoft.VisualStudio.TestPlatform.UnitTestFramework;
+#else
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+#endif
 using Encog.Util.Simple;
 using Encog.Neural.Networks.Structure;
 using Encog.ML;

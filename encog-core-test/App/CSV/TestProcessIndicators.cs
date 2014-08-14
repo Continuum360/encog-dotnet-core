@@ -25,7 +25,12 @@ using Encog.App.Quant.Indicators;
 using Encog.App.Quant.Indicators.Predictive;
 using Encog.Util;
 using Encog.Util.CSV;
+
+#if NETFX_CORE
+using Microsoft.VisualStudio.TestPlatform.UnitTestFramework;
+#else
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+#endif
 
 namespace Encog.App.CSV
 {
@@ -38,7 +43,7 @@ namespace Encog.App.CSV
 
         public void GenerateTestFileHeadings(bool header)
         {
-            var tw = new StreamWriter(InputName.ToString());
+            var tw = new StreamWriter(File.OpenWrite(InputName.ToString()));
 
             if (header)
             {
@@ -70,7 +75,7 @@ namespace Encog.App.CSV
             norm.Columns[0].Output = true;
             norm.Process(OutputName);
 
-            var tr = new StreamReader(OutputName.ToString());
+            var tr = new StreamReader(File.OpenRead(OutputName.ToString()));
 
             Assert.AreEqual("\"date\",\"close\",\"MovAvg\",\"PredictBestClose\"", tr.ReadLine());
             Assert.AreEqual("20100103,3,2,6", tr.ReadLine());
@@ -97,7 +102,7 @@ namespace Encog.App.CSV
             norm.RenameColumn(1, "close");
             norm.Process(OutputName);
 
-            var tr = new StreamReader(OutputName.ToString());
+            var tr = new StreamReader(File.OpenRead(OutputName.ToString()));
 
             Assert.AreEqual("20100103,3,2,6", tr.ReadLine());
             Assert.AreEqual("20100104,4,3,7", tr.ReadLine());

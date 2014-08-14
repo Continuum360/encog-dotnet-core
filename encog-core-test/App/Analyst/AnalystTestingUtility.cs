@@ -33,7 +33,12 @@ using Encog.Persist;
 using Encog.Util;
 using Encog.Util.File;
 using Encog.Util.Simple;
+
+#if NETFX_CORE
+using Microsoft.VisualStudio.TestPlatform.UnitTestFramework;
+#else
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+#endif
 using System.Diagnostics;
 
 namespace Encog.App.Analyst

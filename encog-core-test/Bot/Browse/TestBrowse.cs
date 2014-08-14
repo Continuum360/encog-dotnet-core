@@ -22,7 +22,12 @@
 //
 using System;
 using Encog.Bot.Browse.Range;
+
+#if NETFX_CORE
+using Microsoft.VisualStudio.TestPlatform.UnitTestFramework;
+#else
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+#endif
 
 namespace Encog.Bot.Browse
 {

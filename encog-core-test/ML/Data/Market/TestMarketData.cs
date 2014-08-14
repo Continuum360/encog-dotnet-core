@@ -24,7 +24,12 @@ using System;
 using System.Collections.Generic;
 using Encog.ML.Data.Market.Loader;
 using Encog.ML.Data.Temporal;
+
+#if NETFX_CORE
+using Microsoft.VisualStudio.TestPlatform.UnitTestFramework;
+#else
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+#endif
 
 namespace Encog.ML.Data.Market
 {

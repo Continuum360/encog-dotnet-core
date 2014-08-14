@@ -25,7 +25,12 @@ using System.IO;
 using Encog.App.Quant.Ninja;
 using Encog.Util;
 using Encog.Util.CSV;
+
+#if NETFX_CORE
+using Microsoft.VisualStudio.TestPlatform.UnitTestFramework;
+#else
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+#endif
 
 namespace Encog.App.CSV
 {
@@ -52,7 +57,7 @@ namespace Encog.App.CSV
 
             nsw.Close();
 
-            var tr = new StreamReader(OutputName.ToString());
+            var tr = new StreamReader(File.OpenRead(OutputName.ToString()));
 
             Assert.AreEqual("date,time,\"close\"", tr.ReadLine());
             Assert.AreEqual("20100101,0,10", tr.ReadLine());
