@@ -247,6 +247,14 @@
     <Compile Include="MathUtil\Randomize\NguyenWidrowRandomizer.cs" />
     <Compile Include="MathUtil\Randomize\RandomChoice.cs" />
     <Compile Include="MathUtil\Randomize\RangeRandomizer.cs" />
+    <Compile Include="MathUtil\Randomize\Generate\AbstractBoxMuller.cs" />
+    <Compile Include="MathUtil\Randomize\Generate\AbstractGenerateRandom.cs" />
+    <Compile Include="MathUtil\Randomize\Generate\BasicGenerateRandom.cs" />
+    <Compile Include="MathUtil\Randomize\Generate\IGenerateRandom.cs" />
+    <Compile Include="MathUtil\Randomize\Generate\LinearCongruentialRandom.cs" />
+    <Compile Include="MathUtil\Randomize\Generate\MersenneTwisterGenerateRandom.cs" />
+    <Compile Include="MathUtil\Randomize\Generate\MultiplyWithCarryGenerateRandom.cs" />
+    <Compile Include="MathUtil\Randomize\Generate\SecureGenerateRandom.cs" />
     <Compile Include="MathUtil\RBF\BasicRBF.cs" />
     <Compile Include="MathUtil\RBF\GaussianFunction.cs" />
     <Compile Include="MathUtil\RBF\InverseMultiquadricFunction.cs" />
@@ -302,6 +310,8 @@
     <Compile Include="ML\Data\Buffer\CODEC\NeuralDataSetCODEC.cs" />
     <Compile Include="ML\Data\Buffer\EncogEGBFile.cs" />
     <Compile Include="ML\Data\Buffer\MemoryDataLoader.cs" />
+    <Compile Include="ML\Data\Cross\DataFold.cs" />
+    <Compile Include="ML\Data\Cross\KFoldCrossvalidation.cs" />
     <Compile Include="ML\Data\Dynamic\DynamicMLDataSet.cs" />
     <Compile Include="ML\Data\Dynamic\IDynamicMLDataProvider.cs" />
     <Compile Include="ML\Data\Dynamic\Providers\FuncMLDataProvider.cs" />
@@ -332,6 +342,25 @@
     <Compile Include="ML\Data\Temporal\TemporalError.cs" />
     <Compile Include="ML\Data\Temporal\TemporalMLDataSet.cs" />
     <Compile Include="ML\Data\Temporal\TemporalPoint.cs" />
+    <Compile Include="ML\Data\Versatile\Columns\ColumnDefinition.cs" />
+    <Compile Include="ML\Data\Versatile\Columns\ColumnType.cs" />
+    <Compile Include="ML\Data\Versatile\Division\DataDivision.cs" />
+    <Compile Include="ML\Data\Versatile\Division\PerformDataDivision.cs" />
+    <Compile Include="ML\Data\Versatile\MatrixMLDataSet.cs" />
+    <Compile Include="ML\Data\Versatile\Missing\IMissingHandler.cs" />
+    <Compile Include="ML\Data\Versatile\Missing\MeanMissingHandler.cs" />
+    <Compile Include="ML\Data\Versatile\NormalizationHelper.cs" />
+    <Compile Include="ML\Data\Versatile\Normalizers\IndexedNormalizer.cs" />
+    <Compile Include="ML\Data\Versatile\Normalizers\INormalizer.cs" />
+    <Compile Include="ML\Data\Versatile\Normalizers\OneOfNNormalizer.cs" />
+    <Compile Include="ML\Data\Versatile\Normalizers\PassThroughNormalizer.cs" />
+    <Compile Include="ML\Data\Versatile\Normalizers\RangeNormalizer.cs" />
+    <Compile Include="ML\Data\Versatile\Normalizers\RangeOrdinal.cs" />
+    <Compile Include="ML\Data\Versatile\Normalizers\Strategy\BasicNormalizationStrategy.cs" />
+    <Compile Include="ML\Data\Versatile\Normalizers\Strategy\INormalizationStrategy.cs" />
+    <Compile Include="ML\Data\Versatile\Sources\CSVDataSource.cs" />
+    <Compile Include="ML\Data\Versatile\Sources\IVersatileDataSource.cs" />
+    <Compile Include="ML\Data\Versatile\VersatileMLDataSet.cs" />
     <Compile Include="ML\EA\Codec\GenomeAsPhenomeCODEC.cs" />
     <Compile Include="ML\EA\Codec\IGeneticCODEC.cs" />
     <Compile Include="ML\EA\Exceptions\EACompileError.cs" />
@@ -458,6 +487,13 @@
     <Compile Include="ML\KMeans\BasicCluster.cs" />
     <Compile Include="ML\KMeans\KMeansClustering.cs" />
     <Compile Include="ML\MLDelegates.cs" />
+    <Compile Include="ML\Model\Config\FeedforwardConfig.cs" />
+    <Compile Include="ML\Model\Config\IMethodConfig.cs" />
+    <Compile Include="ML\Model\Config\NEATConfig.cs" />
+    <Compile Include="ML\Model\Config\PNNConfig.cs" />
+    <Compile Include="ML\Model\Config\RBFNetworkConfig.cs" />
+    <Compile Include="ML\Model\Config\SVMConfig.cs" />
+    <Compile Include="ML\Model\EncogModel.cs" />
     <Compile Include="ML\Prg\EncogProgram.cs" />
     <Compile Include="ML\Prg\EncogProgramContext.cs" />
     <Compile Include="ML\Prg\EncogProgramVariables.cs" />
@@ -508,6 +544,7 @@
     <Compile Include="ML\Train\Strategy\End\EndMaxErrorStrategy.cs" />
     <Compile Include="ML\Train\Strategy\End\EndMinutesStrategy.cs" />
     <Compile Include="ML\Train\Strategy\End\IEndTrainingStrategy.cs" />
+    <Compile Include="ML\Train\Strategy\End\SimpleEarlyStoppingStrategy.cs" />
     <Compile Include="ML\Train\Strategy\Greedy.cs" />
     <Compile Include="ML\Train\Strategy\HybridStrategy.cs" />
     <Compile Include="ML\Train\Strategy\IStrategy.cs" />
@@ -732,6 +769,7 @@
     <Compile Include="Util\Arrayutil\TemporalType.cs" />
     <Compile Include="Util\Arrayutil\TemporalWindowArray.cs" />
     <Compile Include="Util\Arrayutil\TemporalWindowField.cs" />
+    <Compile Include="Util\Arrayutil\VectorWindow.cs" />
     <Compile Include="Util\Arrayutil\WindowDouble.cs" />
     <Compile Include="Util\Banchmark\EncoderTrainingFactory.cs" />
     <Compile Include="Util\Banchmark\EncogBenchmark.cs" />
@@ -848,6 +886,15 @@
     </Reference>
     <Reference Include="System.IO.Compression">
       <HintPath>..\packages\Microsoft.Bcl.Compression.3.9.83\lib\portable-net45+win8+wp8+wpa81\System.IO.Compression.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http">
+      <HintPath>..\packages\Microsoft.Net.Http.2.2.28\lib\portable-net40+sl4+win8+wp71+wpa81\System.Net.Http.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http.Extensions">
+      <HintPath>..\packages\Microsoft.Net.Http.2.2.28\lib\portable-net40+sl4+win8+wp71+wpa81\System.Net.Http.Extensions.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http.Primitives">
+      <HintPath>..\packages\Microsoft.Net.Http.2.2.28\lib\portable-net40+sl4+win8+wp71+wpa81\System.Net.Http.Primitives.dll</HintPath>
     </Reference>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Portable\$(TargetFrameworkVersion)\Microsoft.Portable.CSharp.targets" />

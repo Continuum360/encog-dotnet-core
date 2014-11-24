@@ -28,6 +28,10 @@ using System.Text;
 using Encog.Util.HTTP;
 using Encog.Util.File;
 
+#if PORTABLE
+    using System.Net.Http;
+    using System.Threading.Tasks;
+#endif
 
 namespace Encog.Bot
 {
@@ -309,8 +313,14 @@ namespace Encog.Bot
 
         public static void DownloadPage(Uri uri, string file)
         {
-            var Client = new WebClient();
-            Client.DownloadFile(uri, file);
+#if PORTABLE
+            var client = new HttpClient();
+            var contents = Task.Run(async () => await client.GetStringAsync(uri)).Result;
+            File.WriteAllText(file, contents);
+#else
+            var client = new WebClient();
+            client.DownloadFile(uri, file);
+#endif
         }
     }
 }
