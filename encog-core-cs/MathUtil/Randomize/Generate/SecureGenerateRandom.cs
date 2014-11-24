@@ -30,21 +30,21 @@ namespace Encog.MathUtil.Randomize.Generate
         /// <summary>
         /// The random number generator.
         /// </summary>
-        private readonly RandomNumberGenerator _rnd; 
+        private readonly Random _rnd; 
 
         /// <summary>
         /// Construct a random number generator with a time-based seed.
         /// </summary>
         public SecureGenerateRandom()
         {
-            _rnd = RandomNumberGenerator.Create();
+            _rnd = new Random();
         }
 
         /// <inheritdoc/>
         public override double NextDouble()
         {
             var result = new byte[8];
-            _rnd.GetBytes(result);
+            _rnd.NextBytes(result);
             return (double)BitConverter.ToUInt64(result, 0) / ulong.MaxValue;
         }
 
@@ -58,7 +58,7 @@ namespace Encog.MathUtil.Randomize.Generate
         public override float NextFloat()
         {
             var result = new byte[4];
-            _rnd.GetBytes(result);
+            _rnd.NextBytes(result);
             return (float)BitConverter.ToUInt32(result, 0) / ulong.MaxValue;
         }
 
@@ -66,7 +66,7 @@ namespace Encog.MathUtil.Randomize.Generate
         public override long NextLong()
         {
             var result = new byte[8];
-            _rnd.GetBytes(result);
+            _rnd.NextBytes(result);
             return (long)BitConverter.ToUInt64(result, 0);
         }
 
@@ -74,7 +74,7 @@ namespace Encog.MathUtil.Randomize.Generate
         public override int NextInt()
         {
             var result = new byte[4];
-            _rnd.GetBytes(result);
+            _rnd.NextBytes(result);
             return (int)BitConverter.ToUInt32(result, 0);
         }
     }
