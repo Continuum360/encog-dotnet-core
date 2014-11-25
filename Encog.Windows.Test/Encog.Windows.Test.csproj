@@ -1,0 +1,504 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{538C5540-6B39-4077-AF04-DF976B09B627}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Encog</RootNamespace>
+    <AssemblyName>Encog.Windows.Test</AssemblyName>
+    <DefaultLanguage>en-US</DefaultLanguage>
+    <TargetPlatformVersion>8.1</TargetPlatformVersion>
+    <MinimumVisualStudioVersion>12</MinimumVisualStudioVersion>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{BC8A1FFA-BEE3-4634-8014-F334798102B3};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <PackageCertificateKeyFile>Encog.Windows.Test_TemporaryKey.pfx</PackageCertificateKeyFile>
+    <AppxBundle>Never</AppxBundle>
+    <AllowCrossPlatformRetargeting>False</AllowCrossPlatformRetargeting>
+    <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\</SolutionDir>
+    <RestorePackages>true</RestorePackages>
+    <NuGetPackageImportStamp>bc91da15</NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE;NETFX_CORE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE;NETFX_CORE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|ARM'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\ARM\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE;NETFX_CORE</DefineConstants>
+    <NoWarn>;2008</NoWarn>
+    <DebugType>full</DebugType>
+    <PlatformTarget>ARM</PlatformTarget>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <ErrorReport>prompt</ErrorReport>
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|ARM'">
+    <OutputPath>bin\ARM\Release\</OutputPath>
+    <DefineConstants>TRACE;NETFX_CORE</DefineConstants>
+    <Optimize>true</Optimize>
+    <NoWarn>;2008</NoWarn>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>ARM</PlatformTarget>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <ErrorReport>prompt</ErrorReport>
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x64\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE;NETFX_CORE</DefineConstants>
+    <NoWarn>;2008</NoWarn>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <ErrorReport>prompt</ErrorReport>
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x64'">
+    <OutputPath>bin\x64\Release\</OutputPath>
+    <DefineConstants>TRACE;NETFX_CORE</DefineConstants>
+    <Optimize>true</Optimize>
+    <NoWarn>;2008</NoWarn>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <ErrorReport>prompt</ErrorReport>
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x86\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE;NETFX_CORE</DefineConstants>
+    <NoWarn>;2008</NoWarn>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <ErrorReport>prompt</ErrorReport>
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x86'">
+    <OutputPath>bin\x86\Release\</OutputPath>
+    <DefineConstants>TRACE;NETFX_CORE</DefineConstants>
+    <Optimize>true</Optimize>
+    <NoWarn>;2008</NoWarn>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <ErrorReport>prompt</ErrorReport>
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup>
+    <AppXPackage>True</AppXPackage>
+    <AppxPackageIncludePrivateSymbols>true</AppxPackageIncludePrivateSymbols>
+  </PropertyGroup>
+  <ItemGroup>
+    <!--A reference to the entire .Net Framework and Windows SDK are automatically included-->
+    <SDKReference Include="MSTestFramework, Version=11.0" />
+    <SDKReference Include="TestPlatform, Version=11.0" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="..\encog-core-test\App\Analyst\AnalystTestingUtility.cs">
+      <Link>App\Analyst\AnalystTestingUtility.cs</Link>
+    </Compile>
+    <Compile Include="..\encog-core-test\App\Analyst\TestAnalystClassification.cs">
+      <Link>App\Analyst\TestAnalystClassification.cs</Link>
+    </Compile>
+    <Compile Include="..\encog-core-test\App\Analyst\TestAnalystRegression.cs">
+      <Link>App\Analyst\TestAnalystRegression.cs</Link>
+    </Compile>
+    <Compile Include="..\encog-core-test\App\Analyst\TestEncogAnalyst.cs">
+      <Link>App\Analyst\TestEncogAnalyst.cs</Link>
+    </Compile>
+    <Compile Include="..\encog-core-test\App\CSV\TestBalanceCSV.cs">
+      <Link>App\CSV\TestBalanceCSV.cs</Link>
+    </Compile>
+    <Compile Include="..\encog-core-test\App\CSV\TestFilter.cs">
+      <Link>App\CSV\TestFilter.cs</Link>
+    </Compile>
+    <Compile Include="..\encog-core-test\App\CSV\TestNinjaFileConvert.cs">
+      <Link>App\CSV\TestNinjaFileConvert.cs</Link>
+    </Compile>
+    <Compile Include="..\encog-core-test\App\CSV\TestNinjaStreamWriter.cs">
+      <Link>App\CSV\TestNinjaStreamWriter.cs</Link>
+    </Compile>
+    <Compile Include="..\encog-core-test\App\CSV\TestNormalizeArray.cs">
+      <Link>App\CSV\TestNormalizeArray.cs</Link>
+    </Compile>
+    <Compile Include="..\encog-core-test\App\CSV\TestProcessIndicators.cs">
+      <Link>App\CSV\TestProcessIndicators.cs</Link>
+    </Compile>
+    <Compile Include="..\encog-core-test\App\CSV\TestSegregateCSV.cs">
+      <Link>App\CSV\TestSegregateCSV.cs</Link>
+    </Compile>
+    <Compile Include="..\encog-core-test\App\CSV\TestShuffle.cs">
+      <Link>App\CSV\TestShuffle.cs</Link>
+    </Compile>
+    <Compile Include="..\encog-core-test\App\CSV\TestSort.cs">
+      <Link>App\CSV\TestSort.cs</Link>
+    </Compile>
+    <Compile Include="..\encog-core-test\App\CSV\TestYahooDownload.cs">
+      <Link>App\CSV\TestYahooDownload.cs</Link>
+    </Compile>
+    <Compile Include="..\encog-core-test\Bot\Browse\TestAddress.cs">
+      <Link>Bot\Browse\TestAddress.cs</Link>
+    </Compile>
+    <Compile Include="..\encog-core-test\Bot\Browse\TestBrowse.cs">
+      <Link>Bot\Browse\TestBrowse.cs</Link>
+    </Compile>
+    <Compile Include="..\encog-core-test\Bot\Browse\TestWebPageData.cs">
+      <Link>Bot\Browse\TestWebPageData.cs</Link>
+    </Compile>
+    <Compile Include="..\encog-core-test\Bot\HTML\TestParseHTML.cs">
+      <Link>Bot\HTML\TestParseHTML.cs</Link>
+    </Compile>
+    <Compile Include="..\encog-core-test\Bot\TestBotUtil.cs">
+      <Link>Bot\TestBotUtil.cs</Link>
+    </Compile>
+    <Compile Include="..\encog-core-test\Engine\Network\Activation\TestActivationBiPolar.cs">
+      <Link>Engine\Network\Activation\TestActivationBiPolar.cs</Link>
+    </Compile>
+    <Compile Include="..\encog-core-test\Engine\Network\Activation\TestActivationGaussian.cs">
+      <Link>Engine\Network\Activation\TestActivationGaussian.cs</Link>
+    </Compile>
+    <Compile Include="..\encog-core-test\Engine\Network\Activation\TestActivationLinear.cs">
+      <Link>Engine\Network\Activation\TestActivationLinear.cs</Link>
+    </Compile>
+    <Compile Include="..\encog-core-test\Engine\Network\Activation\TestActivationLOG.cs">
+      <Link>Engine\Network\Activation\TestActivationLOG.cs</Link>
+    </Compile>
+    <Compile Include="..\encog-core-test\Engine\Network\Activation\TestActivationSigmoid.cs">
+      <Link>Engine\Network\Activation\TestActivationSigmoid.cs</Link>
+    </Compile>
+    <Compile Include="..\encog-core-test\Engine\Network\Activation\TestActivationSIN.cs">
+      <Link>Engine\Network\Activation\TestActivationSIN.cs</Link>
+    </Compile>
+    <Compile Include="..\encog-core-test\Engine\Network\Activation\TestActivationSoftMax.cs">
+      <Link>Engine\Network\Activation\TestActivationSoftMax.cs</Link>
+    </Compile>
+    <Compile Include="..\encog-core-test\Engine\Network\Activation\TestActivationTANH.cs">
+      <Link>Engine\Network\Activation\TestActivationTANH.cs</Link>
+    </Compile>
+    <Compile Include="..\encog-core-test\MathUtil\Matrices\Hessian\TestHessian.cs">
+      <Link>MathUtil\Matrices\Hessian\TestHessian.cs</Link>
+    </Compile>
+    <Compile Include="..\encog-core-test\MathUtil\Matrices\TestBiPolarUtil.cs">
+      <Link>MathUtil\Matrices\TestBiPolarUtil.cs</Link>
+    </Compile>
+    <Compile Include="..\encog-core-test\MathUtil\Matrices\TestMatrix.cs">
+      <Link>MathUtil\Matrices\TestMatrix.cs</Link>
+    </Compile>
+    <Compile Include="..\encog-core-test\MathUtil\Matrices\TestMatrixMath.cs">
+      <Link>MathUtil\Matrices\TestMatrixMath.cs</Link>
+    </Compile>
+    <Compile Include="..\encog-core-test\ML\Bayes\TestBayesNet.cs">
+      <Link>ML\Bayes\TestBayesNet.cs</Link>
+    </Compile>
+    <Compile Include="..\encog-core-test\ML\Bayes\TestEnumerationQuery.cs">
+      <Link>ML\Bayes\TestEnumerationQuery.cs</Link>
+    </Compile>
+    <Compile Include="..\encog-core-test\ML\Bayes\TestK2.cs">
+      <Link>ML\Bayes\TestK2.cs</Link>
+    </Compile>
+    <Compile Include="..\encog-core-test\ML\Bayes\TestSamplingQuery.cs">
+      <Link>ML\Bayes\TestSamplingQuery.cs</Link>
+    </Compile>
+    <Compile Include="..\encog-core-test\ML\Data\Basic\TestBasicMLSequenceSet.cs">
+      <Link>ML\Data\Basic\TestBasicMLSequenceSet.cs</Link>
+    </Compile>
+    <Compile Include="..\encog-core-test\ML\Data\Buffer\TestBinaryData.cs">
+      <Link>ML\Data\Buffer\TestBinaryData.cs</Link>
+    </Compile>
+    <Compile Include="..\encog-core-test\ML\Data\Buffer\TestBufferedNeuralDataSet.cs">
+      <Link>ML\Data\Buffer\TestBufferedNeuralDataSet.cs</Link>
+    </Compile>
+    <Compile Include="..\encog-core-test\ML\Data\Dynamic\TestDynamic.cs">
+      <Link>ML\Data\Dynamic\TestDynamic.cs</Link>
+    </Compile>
+    <Compile Include="..\encog-core-test\ML\Data\Market\CSVLoaderTest.cs">
+      <Link>ML\Data\Market\CSVLoaderTest.cs</Link>
+    </Compile>
+    <Compile Include="..\encog-core-test\ML\Data\Market\TestMarketData.cs">
+      <Link>ML\Data\Market\TestMarketData.cs</Link>
+    </Compile>
+    <Compile Include="..\encog-core-test\ML\Data\Market\TestYahooLoader.cs">
+      <Link>ML\Data\Market\TestYahooLoader.cs</Link>
+    </Compile>
+    <Compile Include="..\encog-core-test\ML\Data\Specific\TestCSVNeuralData.cs">
+      <Link>ML\Data\Specific\TestCSVNeuralData.cs</Link>
+    </Compile>
+    <Compile Include="..\encog-core-test\ML\Data\Temporal\TestTemporal.cs">
+      <Link>ML\Data\Temporal\TestTemporal.cs</Link>
+    </Compile>
+    <Compile Include="..\encog-core-test\ML\EA\Sort\TestMaximizeAdjustedScoreComp.cs">
+      <Link>ML\EA\Sort\TestMaximizeAdjustedScoreComp.cs</Link>
+    </Compile>
+    <Compile Include="..\encog-core-test\ML\EA\Sort\TestMaximizeScoreComp.cs">
+      <Link>ML\EA\Sort\TestMaximizeScoreComp.cs</Link>
+    </Compile>
+    <Compile Include="..\encog-core-test\ML\EA\Sort\TestMinimizeAdjustedScoreComp.cs">
+      <Link>ML\EA\Sort\TestMinimizeAdjustedScoreComp.cs</Link>
+    </Compile>
+    <Compile Include="..\encog-core-test\ML\EA\Sort\TestMinimizeScoreComp.cs">
+      <Link>ML\EA\Sort\TestMinimizeScoreComp.cs</Link>
+    </Compile>
+    <Compile Include="..\encog-core-test\ML\HMM\TestHMM.cs">
+      <Link>ML\HMM\TestHMM.cs</Link>
+    </Compile>
+    <Compile Include="..\encog-core-test\ML\KMeans\TestKMeans.cs">
+      <Link>ML\KMeans\TestKMeans.cs</Link>
+    </Compile>
+    <Compile Include="..\encog-core-test\ML\Prg\Species\TestCompareEncogProgram.cs">
+      <Link>ML\Prg\Species\TestCompareEncogProgram.cs</Link>
+    </Compile>
+    <Compile Include="..\encog-core-test\ML\Prg\TestEncogProgram.cs">
+      <Link>ML\Prg\TestEncogProgram.cs</Link>
+    </Compile>
+    <Compile Include="..\encog-core-test\ML\Prg\TestProgramClone.cs">
+      <Link>ML\Prg\TestProgramClone.cs</Link>
+    </Compile>
+    <Compile Include="..\encog-core-test\ML\Prg\Train\Crossover\TestSubtreeCrossover.cs">
+      <Link>ML\Prg\Train\Crossover\TestSubtreeCrossover.cs</Link>
+    </Compile>
+    <Compile Include="..\encog-core-test\ML\Prg\Train\Rewrite\TestRewriteAlgebraic.cs">
+      <Link>ML\Prg\Train\Rewrite\TestRewriteAlgebraic.cs</Link>
+    </Compile>
+    <Compile Include="..\encog-core-test\ML\Prg\Train\TestGenerate.cs">
+      <Link>ML\Prg\Train\TestGenerate.cs</Link>
+    </Compile>
+    <Compile Include="..\encog-core-test\Neural\Networks\TestConsistency.cs">
+      <Link>Neural\Networks\TestConsistency.cs</Link>
+    </Compile>
+    <Compile Include="..\encog-core-test\Neural\Networks\Training\Competitive\Neighborhood\TestNeighborhood.cs">
+      <Link>Neural\Networks\Training\Competitive\Neighborhood\TestNeighborhood.cs</Link>
+    </Compile>
+    <Compile Include="..\encog-core-test\Neural\Networks\Training\Competitive\TestCompetitive.cs">
+      <Link>Neural\Networks\Training\Competitive\TestCompetitive.cs</Link>
+    </Compile>
+    <Compile Include="..\encog-core-test\Neural\Networks\Training\TestFolded.cs">
+      <Link>Neural\Networks\Training\TestFolded.cs</Link>
+    </Compile>
+    <Compile Include="..\encog-core-test\Neural\Networks\Training\TestTraining.cs">
+      <Link>Neural\Networks\Training\TestTraining.cs</Link>
+    </Compile>
+    <Compile Include="..\encog-core-test\Parse\Expression\Common\TestBoolean.cs">
+      <Link>Parse\Expression\Common\TestBoolean.cs</Link>
+    </Compile>
+    <Compile Include="..\encog-core-test\Parse\Expression\Common\TestExpression.cs">
+      <Link>Parse\Expression\Common\TestExpression.cs</Link>
+    </Compile>
+    <Compile Include="..\encog-core-test\Parse\Expression\Common\TestExpressionVar.cs">
+      <Link>Parse\Expression\Common\TestExpressionVar.cs</Link>
+    </Compile>
+    <Compile Include="..\encog-core-test\Parse\Expression\Common\TestFunctions.cs">
+      <Link>Parse\Expression\Common\TestFunctions.cs</Link>
+    </Compile>
+    <Compile Include="..\encog-core-test\Parse\Expression\Common\TestRenderCommon.cs">
+      <Link>Parse\Expression\Common\TestRenderCommon.cs</Link>
+    </Compile>
+    <Compile Include="..\encog-core-test\Parse\Expression\Common\TestString.cs">
+      <Link>Parse\Expression\Common\TestString.cs</Link>
+    </Compile>
+    <Compile Include="..\encog-core-test\Parse\Expression\EPL\TestRenderEPL.cs">
+      <Link>Parse\Expression\EPL\TestRenderEPL.cs</Link>
+    </Compile>
+    <Compile Include="..\encog-core-test\Parse\Expression\RPN\TestRenderRPN.cs">
+      <Link>Parse\Expression\RPN\TestRenderRPN.cs</Link>
+    </Compile>
+    <Compile Include="..\encog-core-test\Parse\Tags\Read\TestXMLRead.cs">
+      <Link>Parse\Tags\Read\TestXMLRead.cs</Link>
+    </Compile>
+    <Compile Include="..\encog-core-test\Parse\Tags\Write\TestXmlWrite.cs">
+      <Link>Parse\Tags\Write\TestXmlWrite.cs</Link>
+    </Compile>
+    <Compile Include="..\encog-core-test\Persist\TestPersistART.cs">
+      <Link>Persist\TestPersistART.cs</Link>
+    </Compile>
+    <Compile Include="..\encog-core-test\Persist\TestPersistBAM.cs">
+      <Link>Persist\TestPersistBAM.cs</Link>
+    </Compile>
+    <Compile Include="..\encog-core-test\Persist\TestPersistBasicNetwork.cs">
+      <Link>Persist\TestPersistBasicNetwork.cs</Link>
+    </Compile>
+    <Compile Include="..\encog-core-test\Persist\TestPersistBayes.cs">
+      <Link>Persist\TestPersistBayes.cs</Link>
+    </Compile>
+    <Compile Include="..\encog-core-test\Persist\TestPersistBoltzmann.cs">
+      <Link>Persist\TestPersistBoltzmann.cs</Link>
+    </Compile>
+    <Compile Include="..\encog-core-test\Persist\TestPersistCPN.cs">
+      <Link>Persist\TestPersistCPN.cs</Link>
+    </Compile>
+    <Compile Include="..\encog-core-test\Persist\TestPersistEPLPopulation.cs">
+      <Link>Persist\TestPersistEPLPopulation.cs</Link>
+    </Compile>
+    <Compile Include="..\encog-core-test\Persist\TestPersistFreeform.cs">
+      <Link>Persist\TestPersistFreeform.cs</Link>
+    </Compile>
+    <Compile Include="..\encog-core-test\Persist\TestPersistHMM.cs">
+      <Link>Persist\TestPersistHMM.cs</Link>
+    </Compile>
+    <Compile Include="..\encog-core-test\Persist\TestPersistHopfield.cs">
+      <Link>Persist\TestPersistHopfield.cs</Link>
+    </Compile>
+    <Compile Include="..\encog-core-test\Persist\TestPersistNEAT.cs">
+      <Link>Persist\TestPersistNEAT.cs</Link>
+    </Compile>
+    <Compile Include="..\encog-core-test\Persist\TestPersistPNN.cs">
+      <Link>Persist\TestPersistPNN.cs</Link>
+    </Compile>
+    <Compile Include="..\encog-core-test\Persist\TestPersistPopulation.cs">
+      <Link>Persist\TestPersistPopulation.cs</Link>
+    </Compile>
+    <Compile Include="..\encog-core-test\Persist\TestPersistRBF.cs">
+      <Link>Persist\TestPersistRBF.cs</Link>
+    </Compile>
+    <Compile Include="..\encog-core-test\Persist\TestPersistSOM.cs">
+      <Link>Persist\TestPersistSOM.cs</Link>
+    </Compile>
+    <Compile Include="..\encog-core-test\Persist\TestPersistSVM.cs">
+      <Link>Persist\TestPersistSVM.cs</Link>
+    </Compile>
+    <Compile Include="..\encog-core-test\Persist\TestPersistTrainingContinuation.cs">
+      <Link>Persist\TestPersistTrainingContinuation.cs</Link>
+    </Compile>
+    <Compile Include="..\encog-core-test\Util\NetworkUtil.cs">
+      <Link>Util\NetworkUtil.cs</Link>
+    </Compile>
+    <Compile Include="..\encog-core-test\Util\Normalize\TestMapped.cs">
+      <Link>Util\Normalize\TestMapped.cs</Link>
+    </Compile>
+    <Compile Include="..\encog-core-test\Util\Normalize\TestMultiplicative.cs">
+      <Link>Util\Normalize\TestMultiplicative.cs</Link>
+    </Compile>
+    <Compile Include="..\encog-core-test\Util\Normalize\TestNormArray.cs">
+      <Link>Util\Normalize\TestNormArray.cs</Link>
+    </Compile>
+    <Compile Include="..\encog-core-test\Util\Normalize\TestNormCSV.cs">
+      <Link>Util\Normalize\TestNormCSV.cs</Link>
+    </Compile>
+    <Compile Include="..\encog-core-test\Util\Normalize\TestNormDataSet.cs">
+      <Link>Util\Normalize\TestNormDataSet.cs</Link>
+    </Compile>
+    <Compile Include="..\encog-core-test\Util\Normalize\TestSegregate.cs">
+      <Link>Util\Normalize\TestSegregate.cs</Link>
+    </Compile>
+    <Compile Include="..\encog-core-test\Util\Normalize\TestZAxis.cs">
+      <Link>Util\Normalize\TestZAxis.cs</Link>
+    </Compile>
+    <Compile Include="..\encog-core-test\Util\SerializeRoundTrip.cs">
+      <Link>Util\SerializeRoundTrip.cs</Link>
+    </Compile>
+    <Compile Include="..\encog-core-test\Util\TempDir.cs">
+      <Link>Util\TempDir.cs</Link>
+    </Compile>
+    <Compile Include="..\encog-core-test\Util\TestResourceLoader.cs">
+      <Link>Util\TestResourceLoader.cs</Link>
+    </Compile>
+    <Compile Include="..\encog-core-test\Util\XOR.cs">
+      <Link>Util\XOR.cs</Link>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <AppxManifest Include="Package.appxmanifest">
+      <SubType>Designer</SubType>
+    </AppxManifest>
+    <EmbeddedResource Include="..\encog-core-test\Resources\iris-euro.csv">
+      <Link>Resources\iris-euro.csv</Link>
+    </EmbeddedResource>
+    <EmbeddedResource Include="..\encog-core-test\Resources\iris.csv">
+      <Link>Resources\iris.csv</Link>
+    </EmbeddedResource>
+    <EmbeddedResource Include="..\encog-core-test\Resources\simple-c.ega">
+      <Link>Resources\simple-c.ega</Link>
+    </EmbeddedResource>
+    <EmbeddedResource Include="..\encog-core-test\Resources\simple-r.ega">
+      <Link>Resources\simple-r.ega</Link>
+    </EmbeddedResource>
+    <EmbeddedResource Include="..\encog-core-test\Resources\simple.csv">
+      <Link>Resources\simple.csv</Link>
+    </EmbeddedResource>
+    <EmbeddedResource Include="..\encog-core-test\Resources\xor-nn.eg">
+      <Link>Resources\xor-nn.eg</Link>
+    </EmbeddedResource>
+    <None Include="..\encog-core-test\smallCSV.csv">
+      <Link>smallCSV.csv</Link>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Encog.Windows.Test_TemporaryKey.pfx" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="..\encog-core-test\Resources\hello.txt">
+      <Link>Resources\hello.txt</Link>
+    </EmbeddedResource>
+    <Content Include="Images\UnitTestLogo.scale-100.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\UnitTestSmallLogo.scale-100.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\UnitTestSplashScreen.scale-100.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\UnitTestStoreLogo.scale-100.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\encog-core-cs\Encog.Portable.csproj">
+      <Project>{5192c821-b314-4ae6-9f20-6ae21b65db8f}</Project>
+      <Name>Encog.Portable</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="Shim">
+      <HintPath>..\packages\shim.0.9.3-pre2\lib\netcore45\Shim.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http.Extensions">
+      <HintPath>..\packages\Microsoft.Net.Http.2.2.28\lib\win8\System.Net.Http.Extensions.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http.Primitives">
+      <HintPath>..\packages\Microsoft.Net.Http.2.2.28\lib\win8\System.Net.Http.Primitives.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '12.0' ">
+    <VisualStudioVersion>12.0</VisualStudioVersion>
+  </PropertyGroup>
+  <Import Project="$(MSBuildExtensionsPath)\Microsoft\WindowsXaml\v$(VisualStudioVersion)\Microsoft.Windows.UI.Xaml.CSharp.targets" />
+  <Import Project="$(SolutionDir)\.nuget\NuGet.targets" Condition="Exists('$(SolutionDir)\.nuget\NuGet.targets')" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Enable NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('$(SolutionDir)\.nuget\NuGet.targets')" Text="$([System.String]::Format('$(ErrorText)', '$(SolutionDir)\.nuget\NuGet.targets'))" />
+    <Error Condition="!Exists('..\packages\Microsoft.Bcl.Build.1.0.21\build\Microsoft.Bcl.Build.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.Bcl.Build.1.0.21\build\Microsoft.Bcl.Build.targets'))" />
+  </Target>
+  <Import Project="..\packages\Microsoft.Bcl.Build.1.0.21\build\Microsoft.Bcl.Build.targets" Condition="Exists('..\packages\Microsoft.Bcl.Build.1.0.21\build\Microsoft.Bcl.Build.targets')" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>  
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
